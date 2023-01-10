@@ -49,17 +49,14 @@ class _LogInPageState extends State<LogInPage> {
 
   Widget _kakaoLoginButton(String path, VoidCallback onTap) {
     return Card(
-      elevation: 5.0,
-      shape: const CircleBorder(),
+      // elevation: 5.0,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       clipBehavior: Clip.antiAlias,
       child: Ink.image(
         image: AssetImage('asset/image/$path.png'),
-        width: 60,
-        height: 60,
+        width: 300,
+        height: 300,
         child: InkWell(
-          borderRadius: const BorderRadius.all(
-            Radius.circular(35.0),
-          ),
           onTap: onTap,
         ),
       ),
