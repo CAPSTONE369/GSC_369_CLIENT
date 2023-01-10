@@ -26,6 +26,8 @@ class _LogInPageState extends State<LogInPage> {
           ? await UserApi.instance.loginWithKakaoTalk()
           : await UserApi.instance.loginWithKakaoAccount();
 
+      print(token);
+
       final url = Uri.https('kapi.kakao.com', 'v2/user/me');
 
       final response = await http.get(
@@ -49,17 +51,14 @@ class _LogInPageState extends State<LogInPage> {
 
   Widget _kakaoLoginButton(String path, VoidCallback onTap) {
     return Card(
-      elevation: 5.0,
-      shape: const CircleBorder(),
+      // elevation: 5.0,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       clipBehavior: Clip.antiAlias,
       child: Ink.image(
-        image: AssetImage('asset/image/$path.png'),
-        width: 60,
-        height: 60,
+        image: AssetImage('assets/image/$path.png'),
+        width: 300,
+        height: 300,
         child: InkWell(
-          borderRadius: const BorderRadius.all(
-            Radius.circular(35.0),
-          ),
           onTap: onTap,
         ),
       ),

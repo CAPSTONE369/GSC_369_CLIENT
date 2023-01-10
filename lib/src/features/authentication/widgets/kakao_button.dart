@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 
+/*
 class KakaoButton extends StatelessWidget {
+
+  String path;
+  VoiceCallback onTap;
+
   const KakaoButton({super.key});
 
   @override
@@ -8,3 +13,4 @@ class KakaoButton extends StatelessWidget {
     return 
   }
 }
+*/

@@ -4,10 +4,12 @@ import 'package:client/src/route/router.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:kakao_flutter_sdk_user/kakao_flutter_sdk_user.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  KakaoSdk.init(nativeAppKey: '네이티브 앱 키');
+  await dotenv.load(fileName: 'assets/config/.env');
+  KakaoSdk.init(nativeAppKey: '*');
   runApp(const MyApp());
 }
 
