@@ -9,7 +9,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await dotenv.load(fileName: 'assets/config/.env');
-  KakaoSdk.init(nativeAppKey: '*');
+  KakaoSdk.init(nativeAppKey: dotenv.env['KAKAO_KEY']);
   runApp(const MyApp());
 }
 
