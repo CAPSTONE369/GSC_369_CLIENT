@@ -26,8 +26,6 @@ class _LogInPageState extends State<LogInPage> {
           ? await UserApi.instance.loginWithKakaoTalk()
           : await UserApi.instance.loginWithKakaoAccount();
 
-      print(token);
-
       final url = Uri.https('kapi.kakao.com', 'v2/user/me');
 
       final response = await http.get(
@@ -37,8 +35,15 @@ class _LogInPageState extends State<LogInPage> {
         },
       );
 
-      final profileInfo = jsonDecode(response.body);
-      print(profileInfo.toString());
+      final profile = jsonDecode(response.body);
+
+      final api_url = Uri.http('localhost:8080', 'login/kakao');
+
+      print(profile);
+
+      final api_response = await http.post(api_url, body: response.body);
+
+      print(api_response);
 
       setState(() {
         _platform = AuthorizationPlatform.kakao;
