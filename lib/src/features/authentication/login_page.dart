@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:client/src/features/authentication/auth_platform.dart';
 import 'package:client/src/features/food_fridge/fridge_page.dart';
+import 'package:client/src/route/main_page.dart';
 import 'package:client/src/route/router.dart';
 import 'package:flutter/material.dart';
 import 'package:kakao_flutter_sdk_user/kakao_flutter_sdk_user.dart';
@@ -49,7 +50,7 @@ class _LogInPageState extends State<LogInPage> {
       });
 
       Navigator.push(
-          context, MaterialPageRoute(builder: (context) => FridgePage()));
+          context, MaterialPageRoute(builder: (context) => MainPage()));
     } catch (error) {
       print("카카오톡으로 로그인에 실패하였습니다.");
       print(error);

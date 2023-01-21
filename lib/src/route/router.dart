@@ -5,7 +5,7 @@ import 'package:client/src/features/authentication/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class Router {
+class FridgyRouter {
   // final LoginState loginState;
   // Router(this.loginState);
 

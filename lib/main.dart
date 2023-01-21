@@ -1,5 +1,6 @@
 import 'package:client/src/features/authentication/login_page.dart';
 import 'package:client/src/features/food_fridge/fridge_page.dart';
+import 'package:client/src/route/main_page.dart';
 import 'package:client/src/route/router.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
       initialRoute: "/",
       routes: {
         '/': (context) => const LogInPage(),
-        '/main': (context) => const FridgePage()
+        '/main': (context) => const MainPage()
       },
     );
   }
