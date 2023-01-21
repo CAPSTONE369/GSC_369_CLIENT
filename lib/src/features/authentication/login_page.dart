@@ -47,6 +47,9 @@ class _LogInPageState extends State<LogInPage> {
       setState(() {
         _platform = AuthorizationPlatform.kakao;
       });
+
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => FridgePage()));
     } catch (error) {
       print("카카오톡으로 로그인에 실패하였습니다.");
       print(error);
