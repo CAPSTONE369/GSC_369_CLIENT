@@ -16,15 +16,10 @@ class Router {
     routes: [
       // TODO: Add Routes
       GoRoute(
-          name: 'landing',
-          path: '/',
-          builder: (context, state) => const LogInPage(),
-          redirect: (state) => state.namedLocation('logIn')),
-      GoRoute(
-          name: 'login',
-          path: '/login',
-          pageBuilder: ((context, state) =>
-              MaterialPage(key: state.pageKey, child: LogInPage())))
+        name: 'login',
+        path: '/',
+        builder: (context, state) => LogInPage(),
+      ),
     ],
     // TODO: ADD Error Handler
     errorPageBuilder: (context, state) => MaterialPage<void>(

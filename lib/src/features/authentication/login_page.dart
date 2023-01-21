@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:client/src/features/authentication/auth_platform.dart';
 import 'package:client/src/features/food_fridge/fridge_page.dart';
+import 'package:client/src/route/router.dart';
 import 'package:flutter/material.dart';
 import 'package:kakao_flutter_sdk_user/kakao_flutter_sdk_user.dart';
 import 'package:http/http.dart' as http;
@@ -37,13 +38,11 @@ class _LogInPageState extends State<LogInPage> {
 
       final profile = jsonDecode(response.body);
 
-      final api_url = Uri.http('localhost:8080', 'login/kakao');
+      final apiUrl = Uri.http('localhost:8080', 'login/kakao');
 
-      print(profile);
+      final apiResponse = await http.post(apiUrl, body: response.body);
 
-      final api_response = await http.post(api_url, body: response.body);
-
-      print(api_response);
+      if (apiResponse.statusCode == 200) {}
 
       setState(() {
         _platform = AuthorizationPlatform.kakao;
@@ -54,15 +53,17 @@ class _LogInPageState extends State<LogInPage> {
     }
   }
 
-  Widget _kakaoLoginButton(String path, VoidCallback onTap) {
+  Widget _oauth_login_button(String path, VoidCallback onTap) {
+    var Image = AssetImage('assets/image/$path.png');
     return Card(
       // elevation: 5.0,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       clipBehavior: Clip.antiAlias,
       child: Ink.image(
-        image: AssetImage('assets/image/$path.png'),
+        image: Image,
         width: 300,
-        height: 300,
+        height: 60,
+        fit: BoxFit.fill,
         child: InkWell(
           onTap: onTap,
         ),
@@ -75,12 +76,23 @@ class _LogInPageState extends State<LogInPage> {
     return Scaffold(
       body: Center(
           child: _platform != AuthorizationPlatform.none
-              ? Row()
-              : Row(
+              ? Column()
+              : Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    _kakaoLoginButton(
+                    Text("Welcome To"),
+                    Text("Speaking Fridgy"),
+                    SizedBox(height: 100),
+                    _oauth_login_button(
                       'kakao_logo',
+                      singInWithKakao,
+                    ),
+                    _oauth_login_button(
+                      'google_logo',
+                      singInWithKakao,
+                    ),
+                    _oauth_login_button(
+                      'naver_logo',
                       singInWithKakao,
                     )
                   ],
