@@ -20,6 +20,13 @@ class _FridgePageState extends State<FridgePage> {
         children: [
           FridgeAppBar(),
           const FridgeBigDivider(),
+          const SizedBox(
+            height: 5,
+          ),
+          const Divider(
+            color: Colors.black26,
+            height: 2,
+          ),
         ],
       )),
     );
