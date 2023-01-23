@@ -42,7 +42,7 @@ class _FridgeSmallDividerState extends State<FridgeSmallDivider> {
             color: Color(0xff151B2C),
             constraints: const BoxConstraints(
               minHeight: 40.0,
-              minWidth: 80.0,
+              minWidth: 100.0,
             ),
             isSelected: _selectedMenu,
             children: SmallMenu,
