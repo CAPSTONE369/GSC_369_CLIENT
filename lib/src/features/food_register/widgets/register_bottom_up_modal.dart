@@ -12,22 +12,8 @@ class RegisterModal extends StatefulWidget {
 class _RegisterModalState extends State<RegisterModal> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 200,
-      color: Colors.amber,
-      child: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-            const Text('Modal BottomSheet'),
-            ElevatedButton(
-              child: const Text('Done!'),
-              onPressed: () => Navigator.pop(context),
-            )
-          ],
-        ),
-      ),
+    return Center(
+      child: Text("모달"),
     );
   }
 }
