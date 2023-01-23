@@ -21,7 +21,7 @@ class _MainPageState extends State<MainPage> {
 
   final pageList = const <Page>[
     Page(Icons.home_filled, "fridgy"),
-    Page(Icons.fastfood_rounded, "recipe"),
+    Page(Icons.restaurant_rounded, "recipe"),
     Page(Icons.add_box_outlined, "modal"),
     Page(Icons.shopping_cart_rounded, "exchange"),
     Page(Icons.person, "setting"),
@@ -50,7 +50,7 @@ class _MainPageState extends State<MainPage> {
         showUnselectedLabels: false,
         showSelectedLabels: false,
         unselectedItemColor: Colors.black,
-        selectedItemColor: Color(0xff395BA9),
+        selectedItemColor: const Color(0xff395BA9),
         items: pageList
             .map((Page page) => BottomNavigationBarItem(
                 backgroundColor: Colors.white,
