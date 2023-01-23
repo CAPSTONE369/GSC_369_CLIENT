@@ -1,5 +1,6 @@
 import 'package:client/src/features/food_fridge/widgets/fridge_appbar.dart';
 import 'package:client/src/features/food_fridge/widgets/fridge_big_divider.dart';
+import 'package:client/src/features/food_fridge/widgets/fridge_small_divider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -27,6 +28,10 @@ class _FridgePageState extends State<FridgePage> {
             color: Colors.black26,
             height: 2,
           ),
+          const SizedBox(
+            height: 10,
+          ),
+          Container(child: FridgeSmallDivider()),
         ],
       )),
     );
