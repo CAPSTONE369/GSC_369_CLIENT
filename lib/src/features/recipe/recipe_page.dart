@@ -12,7 +12,7 @@ class RecipePage extends StatefulWidget {
 class _RecipePageState extends State<RecipePage> {
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return Center(
       child: Text("Food Page"),
     );
   }
