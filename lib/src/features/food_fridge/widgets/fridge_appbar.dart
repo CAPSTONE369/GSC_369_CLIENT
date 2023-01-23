@@ -33,7 +33,7 @@ class _FridgeAppBarState extends State<FridgeAppBar> {
             ],
           ),
           const SizedBox(
-            height: 5,
+            height: 10,
           ),
         ],
       )),
