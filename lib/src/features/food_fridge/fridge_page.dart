@@ -29,9 +29,26 @@ class _FridgePageState extends State<FridgePage> {
             height: 2,
           ),
           const SizedBox(
-            height: 10,
+            height: 12,
           ),
-          Container(child: FridgeSmallDivider()),
+          const FridgeSmallDivider(),
+          const SizedBox(
+            height: 12,
+          ),
+          Expanded(
+              child: ListView.separated(
+            itemCount: 12,
+            itemBuilder: (BuildContext context, int idx) {
+              return Column(children: <Widget>[
+                Container(
+                    alignment: Alignment.centerLeft,
+                    height: 50,
+                    color: Color(0xffFDFCFF))
+              ]);
+            },
+            separatorBuilder: (BuildContext context, int index) => ColoredBox(
+                color: Color(0xffFDFCFF), child: SizedBox(height: 5)),
+          )),
         ],
       )),
     );
