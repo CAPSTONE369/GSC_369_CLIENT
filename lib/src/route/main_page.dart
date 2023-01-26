@@ -51,25 +51,10 @@ class _MainPageState extends State<MainPage> {
           });
           if (x == 2) {
             showModalBottomSheet(
+                backgroundColor: Colors.transparent,
                 context: context,
                 builder: (BuildContext context) {
-                  return Container(
-                    height: 200,
-                    color: Colors.amber,
-                    child: Center(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        mainAxisSize: MainAxisSize.min,
-                        children: <Widget>[
-                          const Text('Modal BottomSheet'),
-                          ElevatedButton(
-                            child: const Text('Close BottomSheet'),
-                            onPressed: () => Navigator.pop(context),
-                          ),
-                        ],
-                      ),
-                    ),
-                  );
+                  return RegisterModal();
                 });
             idx = y;
           }

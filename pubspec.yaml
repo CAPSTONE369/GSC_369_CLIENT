@@ -67,6 +67,7 @@ flutter:
     - assets/image/kakao_logo.png
     - assets/image/naver_logo.png
     - assets/image/google_logo.png
+    - assets/image/modal_drag_handle.png
     - assets/config/.env
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg

@@ -39,11 +39,11 @@ class _LogInPageState extends State<LogInPage> {
 
       final profile = jsonDecode(response.body);
 
-      final apiUrl = Uri.http('localhost:8080', 'login/kakao');
+      // final apiUrl = Uri.http('localhost:8080', 'login/kakao');
 
-      final apiResponse = await http.post(apiUrl, body: response.body);
+      // final apiResponse = await http.post(apiUrl, body: response.body);
 
-      if (apiResponse.statusCode == 200) {}
+      // if (apiResponse.statusCode == 200) {}
 
       setState(() {
         _platform = AuthorizationPlatform.kakao;
