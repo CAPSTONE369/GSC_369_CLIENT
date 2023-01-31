@@ -2,11 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
-class ModalMenu {
-  const ModalMenu(this.iconData, this.text);
-  final IconData iconData;
-  final String text;
-}
+import '../buttons/camera_button.dart';
 
 class RegisterModal extends StatefulWidget {
   const RegisterModal({super.key});
@@ -16,8 +12,6 @@ class RegisterModal extends StatefulWidget {
 }
 
 class _RegisterModalState extends State<RegisterModal> {
-  final modalList = <ModalMenu>[];
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -38,7 +32,7 @@ class _RegisterModalState extends State<RegisterModal> {
                 height: 4,
                 fit: BoxFit.fill,
               ),
-              // for (var i in )
+              RegisterCameraButton()
             ],
           )),
     );
