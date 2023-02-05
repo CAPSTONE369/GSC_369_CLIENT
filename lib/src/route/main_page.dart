@@ -54,7 +54,7 @@ class _MainPageState extends State<MainPage> {
                 backgroundColor: Colors.transparent,
                 context: context,
                 builder: (BuildContext context) {
-                  return RegisterModal();
+                  return const RegisterModal();
                 });
             idx = y;
           }

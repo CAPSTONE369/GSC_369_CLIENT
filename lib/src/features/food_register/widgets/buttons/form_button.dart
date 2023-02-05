@@ -2,6 +2,8 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
 
+import '../../pages/food_register.dart';
+
 class RegisterFormButton extends StatefulWidget {
   const RegisterFormButton({super.key});
 
@@ -18,7 +20,10 @@ class _RegisterFormButtonState extends State<RegisterFormButton> {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
       child: InkWell(
         borderRadius: BorderRadius.circular(8),
-        onTap: () {},
+        onTap: () {
+          Navigator.of(context).push(
+              MaterialPageRoute(builder: (context) => FoodRegisterFormPage()));
+        },
         child: Row(
           children: [
             const Flexible(flex: 1, child: SizedBox.expand()),
