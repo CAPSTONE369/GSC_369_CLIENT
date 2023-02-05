@@ -38,6 +38,7 @@ class _LogInPageState extends State<LogInPage> {
       );
 
       final profile = jsonDecode(response.body);
+      print(profile);
 
       // final apiUrl = Uri.http('localhost:8080', 'login/kakao');
 
