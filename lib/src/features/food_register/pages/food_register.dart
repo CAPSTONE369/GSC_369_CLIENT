@@ -10,14 +10,31 @@ class FoodRegisterFormPage extends StatefulWidget {
 }
 
 class _FoodRegisterFormPageState extends State<FoodRegisterFormPage> {
+  bool shadowColor = false;
+  double? scrolledUnderElevation;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        title: const Text(
+          "식재료 추가하기",
+          style:
+              TextStyle(color: Color(0xff395BA9), fontWeight: FontWeight.bold),
+        ),
+        toolbarHeight: 60,
+        backgroundColor: Colors.white,
+        scrolledUnderElevation: scrolledUnderElevation,
+        shadowColor: shadowColor ? Theme.of(context).colorScheme.shadow : null,
         elevation: 1,
+        leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context); //뒤로가기
+            },
+            color: Color(0xff44464F),
+            icon: Icon(Icons.arrow_back)),
       ),
-      body: Center(
+      body: const Center(
         child: Text("FoodRegisterFormPage"),
       ),
     );
