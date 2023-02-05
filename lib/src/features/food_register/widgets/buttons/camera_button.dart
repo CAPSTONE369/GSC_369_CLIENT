@@ -30,22 +30,41 @@ class _RegisterCameraButtonState extends State<RegisterCameraButton> {
         [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
 
     return Card(
-      elevation: 2,
+      color: Colors.transparent,
+      elevation: 0,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
       child: InkWell(
         borderRadius: BorderRadius.circular(8),
         onTap: () {
           getImage(ImageSource.camera);
         },
-        child: Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(8),
-            color: Colors.transparent,
-          ),
-          child: Text("카메라!"),
+        child: Row(
+          children: [
+            const Flexible(flex: 1, child: SizedBox.expand()),
+            Flexible(
+              flex: 2,
+              child: Container(
+                width: 40,
+                height: 40,
+                decoration: const BoxDecoration(
+                    color: Color(0xffDAE2FF), shape: BoxShape.circle),
+                child: const Icon(Icons.camera_alt_rounded),
+              ),
+            ),
+            const Flexible(flex: 1, child: SizedBox.expand()),
+            Flexible(
+              flex: 4,
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: const Text("영수증 사진 찍기", style: TextStyle(fontSize: 16)),
+              ),
+            ),
+            const Flexible(flex: 2, child: SizedBox.expand()),
+          ],
         ),
       ),
     );
-    ;
   }
 }

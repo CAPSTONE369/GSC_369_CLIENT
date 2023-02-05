@@ -17,9 +17,6 @@ class _FridgePageState extends State<FridgePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-          child: Flexible(
-        flex: 1,
-        fit: FlexFit.loose,
         child: Column(
           children: [
             FridgeAppBar(),
@@ -42,69 +39,65 @@ class _FridgePageState extends State<FridgePage> {
                 child: ListView.separated(
               itemCount: 12,
               itemBuilder: (BuildContext context, int idx) {
-                return Flexible(
-                    flex: 1,
-                    fit: FlexFit.loose,
-                    child: Column(children: <Widget>[
+                return Column(children: <Widget>[
+                  Container(
+                    alignment: Alignment.centerLeft,
+                    height: 70,
+                    color: const Color(0xffFDFCFF),
+                    child: Row(children: [
                       Container(
-                        alignment: Alignment.centerLeft,
-                        height: 70,
-                        color: const Color(0xffFDFCFF),
-                        child: Row(children: [
-                          Container(
-                            margin: const EdgeInsets.all(10.0),
-                            child: const CircleAvatar(
-                              backgroundColor: Color(0xffE6E6E6),
-                              radius: 17,
-                              child: Icon(
-                                Icons.person,
-                                color: Color(0xffCCCCCC),
+                        margin: const EdgeInsets.all(10.0),
+                        child: const CircleAvatar(
+                          backgroundColor: Color(0xffE6E6E6),
+                          radius: 17,
+                          child: Icon(
+                            Icons.person,
+                            color: Color(0xffCCCCCC),
+                          ),
+                        ),
+                      ),
+                      Container(
+                          width: 210,
+                          margin: const EdgeInsets.only(
+                              left: 10, right: 10, top: 20),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: const [
+                              Text(
+                                "감자밥바라나난",
+                                textAlign: TextAlign.center,
+                                overflow: TextOverflow.ellipsis,
+                                style: TextStyle(
+                                    fontSize: 15, fontWeight: FontWeight.w800),
                               ),
-                            ),
-                          ),
-                          Container(
-                              width: 210,
-                              margin: const EdgeInsets.only(
-                                  left: 10, right: 10, top: 20),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: const [
-                                  Text(
-                                    "감자밥바라나난",
-                                    textAlign: TextAlign.center,
-                                    overflow: TextOverflow.ellipsis,
-                                    style: TextStyle(
-                                        fontSize: 15,
-                                        fontWeight: FontWeight.w800),
-                                  ),
-                                  SizedBox(
-                                    height: 2,
-                                  ),
-                                  Text(
-                                    "3일 전",
-                                    textAlign: TextAlign.center,
-                                    overflow: TextOverflow.ellipsis,
-                                    style: TextStyle(
-                                      fontSize: 15,
-                                    ),
-                                  )
-                                ],
-                              )),
-                          Container(
-                            child: IconButton(
-                              icon: const Icon(Icons.delete_outline_rounded),
-                              onPressed: () {},
-                            ),
-                          ),
-                          Container(
-                            child: IconButton(
-                              icon: const Icon(Icons.create_outlined),
-                              onPressed: () {},
-                            ),
-                          )
-                        ]),
+                              SizedBox(
+                                height: 2,
+                              ),
+                              Text(
+                                "3일 전",
+                                textAlign: TextAlign.center,
+                                overflow: TextOverflow.ellipsis,
+                                style: TextStyle(
+                                  fontSize: 15,
+                                ),
+                              )
+                            ],
+                          )),
+                      Container(
+                        child: IconButton(
+                          icon: const Icon(Icons.delete_outline_rounded),
+                          onPressed: () {},
+                        ),
+                      ),
+                      Container(
+                        child: IconButton(
+                          icon: const Icon(Icons.create_outlined),
+                          onPressed: () {},
+                        ),
                       )
-                    ]));
+                    ]),
+                  )
+                ]);
               },
               separatorBuilder: (BuildContext context, int index) =>
                   const ColoredBox(
@@ -112,7 +105,7 @@ class _FridgePageState extends State<FridgePage> {
             )),
           ],
         ),
-      )),
+      ),
     );
   }
 }
