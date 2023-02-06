@@ -1,7 +1,7 @@
 import 'package:client/src/features/food_register/widgets/card/register_card.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+
+import '../widgets/modal/register_bottom_sheet_modal.dart';
 
 class FoodRegisterFormPage extends StatefulWidget {
   const FoodRegisterFormPage({super.key});
@@ -13,7 +13,7 @@ class FoodRegisterFormPage extends StatefulWidget {
 class _FoodRegisterFormPageState extends State<FoodRegisterFormPage> {
   bool shadowColor = false;
   double? scrolledUnderElevation;
-
+  int itemCount = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,7 +41,7 @@ class _FoodRegisterFormPageState extends State<FoodRegisterFormPage> {
           child: Column(children: [
             Expanded(
                 child: ListView.separated(
-              itemCount: 12,
+              itemCount: itemCount,
               itemBuilder: (BuildContext context, int idx) {
                 return const RegisterCard();
               },
@@ -51,9 +51,6 @@ class _FoodRegisterFormPageState extends State<FoodRegisterFormPage> {
             ))
           ]),
         )),
-        bottomSheet: Container(
-          color: Color(0xffFDFCFF),
-          height: 200,
-        ));
+        bottomSheet: FoodRegisterBottomSheetModal());
   }
 }
