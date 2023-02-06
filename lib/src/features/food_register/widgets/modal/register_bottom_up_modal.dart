@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
-import '../buttons/camera_button.dart';
-import '../buttons/form_button.dart';
-import '../buttons/image_button.dart';
+import 'buttons/camera_button.dart';
+import 'buttons/form_button.dart';
+import 'buttons/image_button.dart';
 
 class RegisterModal extends StatefulWidget {
   const RegisterModal({super.key});

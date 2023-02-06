@@ -2,7 +2,7 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
 
-import '../../pages/food_register.dart';
+import '../../../pages/food_register_page.dart';
 
 class RegisterFormButton extends StatefulWidget {
   const RegisterFormButton({super.key});
