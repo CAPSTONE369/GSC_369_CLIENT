@@ -1,14 +1,14 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:client/src/features/authentication/auth_platform.dart';
-import 'package:client/src/features/food_fridge/fridge_page.dart';
-import 'package:client/src/route/main_page.dart';
-import 'package:client/src/route/router.dart';
+import 'package:client/src/model/auth_platform.dart';
+import 'package:client/src/pages/fridge_page.dart';
+import 'package:client/src/pages/route/main_page.dart';
+import 'package:client/src/pages/route/router.dart';
 import 'package:flutter/material.dart';
 import 'package:kakao_flutter_sdk_user/kakao_flutter_sdk_user.dart';
 import 'package:http/http.dart' as http;
-import 'package:client/src/features/food_fridge/fridge_page.dart';
+import 'package:client/src/pages/fridge_page.dart';
 import 'package:flutter/material.dart';
 
 class LogInPage extends StatefulWidget {

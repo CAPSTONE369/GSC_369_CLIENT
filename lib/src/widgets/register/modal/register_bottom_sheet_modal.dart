@@ -15,7 +15,7 @@ class _FoodRegisterBottomSheetModalState
   @override
   Widget build(BuildContext context) {
     return Container(
-        color: const Color(0xffFDFCFF),
+        color: Colors.white,
         height: aheight,
         width: double.infinity,
         child: Center(

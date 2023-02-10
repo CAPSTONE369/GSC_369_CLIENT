@@ -1,7 +1,6 @@
-import 'package:client/src/features/food_register/widgets/card/register_card.dart';
+import 'package:client/src/widgets/register/card/register_card.dart';
 import 'package:flutter/material.dart';
-
-import '../widgets/modal/register_bottom_sheet_modal.dart';
+import '../widgets/register/modal/register_bottom_sheet_modal.dart';
 
 class FoodRegisterFormPage extends StatefulWidget {
   const FoodRegisterFormPage({super.key});
@@ -13,7 +12,7 @@ class FoodRegisterFormPage extends StatefulWidget {
 class _FoodRegisterFormPageState extends State<FoodRegisterFormPage> {
   bool shadowColor = false;
   double? scrolledUnderElevation;
-  int itemCount = 0;
+  int itemCount = 12;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,7 +23,7 @@ class _FoodRegisterFormPageState extends State<FoodRegisterFormPage> {
                 color: Color(0xff395BA9), fontWeight: FontWeight.bold),
           ),
           toolbarHeight: 70,
-          backgroundColor: const Color(0xffFDFCFF),
+          backgroundColor: Colors.white,
           scrolledUnderElevation: scrolledUnderElevation,
           shadowColor: null,
           elevation: 0,

@@ -1,7 +1,7 @@
-import 'package:client/src/features/exchange/exchange_page.dart';
-import 'package:client/src/features/food_fridge/fridge_page.dart';
-import 'package:client/src/features/food_register/widgets/modal/register_bottom_up_modal.dart';
-import 'package:client/src/features/setting/setting_page.dart';
+import 'package:client/src/pages/exchange_page.dart';
+import 'package:client/src/pages/fridge_page.dart';
+import 'package:client/src/widgets/register/modal/register_bottom_up_modal.dart';
+import 'package:client/src/pages/setting_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';

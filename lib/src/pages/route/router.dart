@@ -1,7 +1,7 @@
 import 'dart:developer';
 
-import 'package:client/src/common_widgets/error_page.dart';
-import 'package:client/src/features/authentication/login_page.dart';
+import 'package:client/src/pages/error_page.dart';
+import 'package:client/src/pages/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
