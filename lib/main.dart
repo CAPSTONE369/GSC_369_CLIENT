@@ -1,3 +1,4 @@
+import 'package:client/src/controller/food_controller.dart';
 import 'package:client/src/pages/login_page.dart';
 import 'package:client/src/pages/fridge_page.dart';
 import 'package:client/src/pages/route/main_page.dart';
@@ -11,7 +12,10 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await dotenv.load(fileName: 'assets/config/.env');
   KakaoSdk.init(nativeAppKey: dotenv.env['KAKAO_KEY']);
-  runApp(const MyApp());
+  runApp(MultiProvider(
+    providers: [ChangeNotifierProvider(create: (_) => FoodNotifier())],
+    child: MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
