@@ -33,6 +33,9 @@ class _FoodRegisterBottomSheetModalState
                     showDialog(
                         context: context,
                         barrierDismissible: true,
+                        barrierLabel: MaterialLocalizations.of(context)
+                            .modalBarrierDismissLabel,
+                        barrierColor: Colors.black45,
                         builder: (BuildContext context) => FoodAddModal());
                   },
                   child: const Text(
