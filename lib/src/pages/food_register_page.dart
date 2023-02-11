@@ -1,6 +1,8 @@
+import 'package:client/src/controller/food_controller.dart';
 import 'package:client/src/widgets/register/card/register_card.dart';
 import 'package:flutter/material.dart';
 import '../widgets/register/modal/register_bottom_sheet_modal.dart';
+import 'package:provider/provider.dart';
 
 class FoodRegisterFormPage extends StatefulWidget {
   const FoodRegisterFormPage({super.key});
@@ -13,8 +15,10 @@ class _FoodRegisterFormPageState extends State<FoodRegisterFormPage> {
   bool shadowColor = false;
   double? scrolledUnderElevation;
   int itemCount = 12;
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
+    FoodNotifier foodNotifier = Provider.of<FoodNotifier>(context);
     return Scaffold(
         appBar: AppBar(
           title: const Text(

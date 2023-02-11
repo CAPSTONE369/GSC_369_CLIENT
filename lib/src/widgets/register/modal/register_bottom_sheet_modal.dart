@@ -1,3 +1,4 @@
+import 'package:client/src/widgets/register/modal/food_add_modal.dart';
 import 'package:flutter/material.dart';
 
 class FoodRegisterBottomSheetModal extends StatefulWidget {
@@ -29,7 +30,10 @@ class _FoodRegisterBottomSheetModalState
                 height: 50,
                 child: OutlinedButton(
                   onPressed: () {
-                    debugPrint('Received click');
+                    showDialog(
+                        context: context,
+                        barrierDismissible: true,
+                        builder: (BuildContext context) => FoodAddModal());
                   },
                   child: const Text(
                     '+ 상품 추가하기',
