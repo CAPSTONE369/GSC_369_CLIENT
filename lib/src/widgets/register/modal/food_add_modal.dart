@@ -1,6 +1,7 @@
 import 'dart:ffi';
 
 import 'package:client/src/controller/food_controller.dart';
+import 'package:client/src/model/food.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:provider/provider.dart';
@@ -17,13 +18,12 @@ class FoodAddModal extends StatefulWidget {
 
 class _FoodAddModalState extends State<FoodAddModal> {
   late String _name;
-  late String _date;
+  late DateTime _date;
   late String _quantity;
-  late Bool _isFrozen;
-  late String _classification;
+  String _isFrozen = frozenList.first;
+  String _classification = sortingList.first;
 
   String sortingValue = sortingList.first;
-  String froznValue = frozenList.first;
 
   final _formKey = GlobalKey<FormState>();
 
@@ -31,6 +31,7 @@ class _FoodAddModalState extends State<FoodAddModal> {
   Widget build(BuildContext context) {
     FoodNotifier foodNotifier = Provider.of<FoodNotifier>(context);
     return AlertDialog(
+      backgroundColor: Color(0xffF3F4FB),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
       title: const Text('New Food!'),
       content: Form(
@@ -43,13 +44,17 @@ class _FoodAddModalState extends State<FoodAddModal> {
             children: [
               TextFormField(
                 decoration: InputDecoration(
-                  fillColor: Colors.white,
-                  filled: true,
-                  labelText: 'Food Name',
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(16),
+                  labelText: 'Name',
+                  fillColor: Color(0xffFDFCFF),
+                  enabledBorder: const OutlineInputBorder(
+                    // width: 0.0 produces a thin "hairline" border
+                    borderSide:
+                        const BorderSide(color: Color(0xffF3F4FB), width: 0.0),
                   ),
-                  floatingLabelBehavior: FloatingLabelBehavior.never,
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  labelStyle: new TextStyle(color: Colors.black),
                 ),
                 initialValue: '',
                 onSaved: (value) {
@@ -59,11 +64,11 @@ class _FoodAddModalState extends State<FoodAddModal> {
               SizedBox(height: 5),
               TextFormField(
                 decoration: InputDecoration(
-                  fillColor: Colors.white,
+                  fillColor: Color(0xffFDFCFF),
                   filled: true,
                   labelText: 'Quantity',
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(16),
+                    borderRadius: BorderRadius.circular(8),
                   ),
                   floatingLabelBehavior: FloatingLabelBehavior.never,
                 ),
@@ -77,8 +82,8 @@ class _FoodAddModalState extends State<FoodAddModal> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   DropdownButton<String>(
-                      value: sortingValue,
-                      icon: const Icon(Icons.arrow_downward),
+                      value: _classification,
+                      icon: const Icon(Icons.arrow_drop_down),
                       elevation: 16,
                       style: const TextStyle(color: Colors.deepPurple),
                       underline: Container(
@@ -88,7 +93,7 @@ class _FoodAddModalState extends State<FoodAddModal> {
                       onChanged: (String? value) {
                         // This is called when the user selects an item.
                         setState(() {
-                          sortingValue = value!;
+                          _classification = value!;
                         });
                       },
                       items: sortingList
@@ -102,8 +107,8 @@ class _FoodAddModalState extends State<FoodAddModal> {
                     width: 10,
                   ),
                   DropdownButton<String>(
-                      value: froznValue,
-                      icon: const Icon(Icons.arrow_downward),
+                      value: _isFrozen,
+                      icon: const Icon(Icons.arrow_drop_down),
                       elevation: 16,
                       style: const TextStyle(color: Colors.deepPurple),
                       underline: Container(
@@ -113,7 +118,7 @@ class _FoodAddModalState extends State<FoodAddModal> {
                       onChanged: (String? value) {
                         // This is called when the user selects an item.
                         setState(() {
-                          froznValue = value!;
+                          _isFrozen = value!;
                         });
                       },
                       items: frozenList
@@ -142,7 +147,20 @@ class _FoodAddModalState extends State<FoodAddModal> {
           child: const Text('Cancel'),
         ),
         TextButton(
-          onPressed: () => Navigator.pop(context, 'OK'),
+          onPressed: () => {
+            Navigator.pop(context, 'OK'),
+            // if(!_formKey.currentState!.validate());
+            _formKey.currentState?.save(),
+            print(_name),
+            print(_quantity),
+            print(_isFrozen),
+            foodNotifier.addFood(Food(
+                name: _name,
+                date: _date,
+                quantity: _quantity,
+                isFrozen: _isFrozen,
+                classification: _classification))
+          },
           child: const Text('OK'),
         ),
       ],
@@ -170,7 +188,7 @@ class _FoodAddModalState extends State<FoodAddModal> {
         //gravity: ToastGravity.CENTER,  //위치(default 는 아래)
       );
       setState(() {
-        _date = dateTime as String;
+        _date = dateTime!;
       });
     });
   }

@@ -10,12 +10,12 @@ class FoodNotifier extends ChangeNotifier {
   UnmodifiableListView<Food> get _foodList => UnmodifiableListView(foodList);
 
   addFood(Food food) {
-    _foodList.add(food);
+    foodList.add(food);
     notifyListeners();
   }
 
   deleteUser(index) {
-    _foodList.removeAt(index);
+    foodList.removeAt(index);
     notifyListeners();
   }
 }

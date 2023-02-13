@@ -4,9 +4,9 @@ import 'dart:io';
 class Food {
   Long? foodId;
   String name;
-  String date;
+  DateTime date;
   String quantity;
-  Bool isFrozen;
+  String isFrozen;
   String classification;
 
   Food(

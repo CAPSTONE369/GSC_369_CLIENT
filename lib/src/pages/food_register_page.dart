@@ -15,7 +15,6 @@ class _FoodRegisterFormPageState extends State<FoodRegisterFormPage> {
   bool shadowColor = false;
   double? scrolledUnderElevation;
   int itemCount = 12;
-  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     FoodNotifier foodNotifier = Provider.of<FoodNotifier>(context);
@@ -54,6 +53,6 @@ class _FoodRegisterFormPageState extends State<FoodRegisterFormPage> {
             ))
           ]),
         )),
-        bottomSheet: FoodRegisterBottomSheetModal());
+        bottomSheet: const FoodRegisterBottomSheetModal());
   }
 }
