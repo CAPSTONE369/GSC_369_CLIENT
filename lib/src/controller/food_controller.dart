@@ -14,8 +14,16 @@ class FoodNotifier extends ChangeNotifier {
     notifyListeners();
   }
 
-  deleteUser(index) {
+  deleteFood(index) {
     foodList.removeAt(index);
+    notifyListeners();
+  }
+
+  deleteAllFood() {
+    int len = foodList.length;
+    for (int i = 0; i < len; i++) {
+      foodList.removeAt(i);
+    }
     notifyListeners();
   }
 }

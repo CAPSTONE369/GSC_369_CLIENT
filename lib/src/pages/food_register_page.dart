@@ -31,7 +31,8 @@ class _FoodRegisterFormPageState extends State<FoodRegisterFormPage> {
           elevation: 0,
           leading: IconButton(
               onPressed: () {
-                Navigator.pop(context); //뒤로가기
+                Navigator.pop(context);
+                foodNotifier.deleteAllFood(); //뒤로가기
               },
               color: const Color(0xff44464F),
               icon: const Icon(Icons.arrow_back)),
@@ -40,6 +41,9 @@ class _FoodRegisterFormPageState extends State<FoodRegisterFormPage> {
             child: Container(
           margin: const EdgeInsets.only(left: 3, right: 3),
           child: Column(children: [
+            SizedBox(
+              height: 5,
+            ),
             Expanded(
                 child: ListView.separated(
               itemCount: foodNotifier.foodList.length,
@@ -50,7 +54,9 @@ class _FoodRegisterFormPageState extends State<FoodRegisterFormPage> {
                     notifier,
                     __,
                   ) =>
-                      FoodCard(food: notifier.foodList[index]),
+                      FoodCard(
+                    food: notifier.foodList[index],
+                  ),
                 );
               },
               separatorBuilder: (BuildContext context, int index) =>
