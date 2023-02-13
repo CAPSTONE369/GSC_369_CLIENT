@@ -20,10 +20,7 @@ class FoodNotifier extends ChangeNotifier {
   }
 
   deleteAllFood() {
-    int len = foodList.length;
-    for (int i = 0; i < len; i++) {
-      foodList.removeAt(i);
-    }
+    foodList = [];
     notifyListeners();
   }
 }
