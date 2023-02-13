@@ -1,18 +1,21 @@
+import 'package:client/src/model/food.dart';
 import 'package:flutter/material.dart';
 
-class RegisterCard extends StatefulWidget {
-  const RegisterCard({super.key});
+class FoodCard extends StatelessWidget {
+  final Food food;
+  const FoodCard({super.key, required this.food});
 
-  @override
-  State<RegisterCard> createState() => _RegisterCardState();
-}
-
-class _RegisterCardState extends State<RegisterCard> {
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 92,
-      child: const ColoredBox(color: Color(0xffF3F4FB)),
+      color: const Color(0xffF3F4FB),
+      child: Column(children: [
+        Text(food.name),
+        Text(food.isFrozen),
+        Text(food.quantity),
+        Text(food.date.toIso8601String())
+      ]),
     );
   }
 }
