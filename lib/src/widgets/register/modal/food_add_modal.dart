@@ -2,8 +2,11 @@ import 'dart:ffi';
 
 import 'package:client/src/controller/food_controller.dart';
 import 'package:client/src/model/food.dart';
+import 'package:client/src/widgets/register/buttons/food_add_modal_dropdown.dart';
+import 'package:client/src/widgets/register/modal/TextInputForm.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
 List<String> sortingList = <String>['육류', '채소', '유제품', '과일', '기타'];
@@ -18,7 +21,7 @@ class FoodAddModal extends StatefulWidget {
 
 class _FoodAddModalState extends State<FoodAddModal> {
   late String _name;
-  late DateTime _date;
+  DateTime _date = DateTime.now();
   late String _quantity;
   String _isFrozen = frozenList.first;
   String _classification = sortingList.first;
@@ -37,105 +40,78 @@ class _FoodAddModalState extends State<FoodAddModal> {
       content: Form(
         key: _formKey,
         child: Padding(
-          padding: EdgeInsets.only(left: 5, top: 15.0, right: 5.0, bottom: 0.0),
+          padding: EdgeInsets.only(left: 5, top: 5.0, right: 5.0, bottom: 0.0),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              TextFormField(
-                decoration: InputDecoration(
-                  labelText: 'Name',
-                  fillColor: Color(0xffFDFCFF),
-                  enabledBorder: const OutlineInputBorder(
-                    // width: 0.0 produces a thin "hairline" border
-                    borderSide:
-                        const BorderSide(color: Color(0xffF3F4FB), width: 0.0),
-                  ),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  labelStyle: new TextStyle(color: Colors.black),
-                ),
-                initialValue: '',
+              SizedBox(height: 20),
+              FoodAddModalTextInputForm(
+                field: "Name",
                 onSaved: (value) {
                   _name = value!;
                 },
               ),
               SizedBox(height: 5),
-              TextFormField(
-                decoration: InputDecoration(
-                  fillColor: Color(0xffFDFCFF),
-                  filled: true,
-                  labelText: 'Quantity',
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  floatingLabelBehavior: FloatingLabelBehavior.never,
-                ),
-                initialValue: '',
+              FoodAddModalTextInputForm(
+                field: "Quantity",
                 onSaved: (value) {
                   _quantity = value!;
                 },
               ),
+              const SizedBox(
+                height: 5,
+              ),
               Row(
-                mainAxisSize: MainAxisSize.min,
+                mainAxisSize: MainAxisSize.max,
                 crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  DropdownButton<String>(
-                      value: _classification,
-                      icon: const Icon(Icons.arrow_drop_down),
-                      elevation: 16,
-                      style: const TextStyle(color: Colors.deepPurple),
-                      underline: Container(
-                        height: 2,
-                        color: Colors.deepPurpleAccent,
-                      ),
+                  Padding(
+                    padding: EdgeInsets.only(left: 15, right: 10),
+                    child: FoodAddModalDropDown(
+                      sortingValue: _classification,
+                      items: sortingList,
                       onChanged: (String? value) {
                         // This is called when the user selects an item.
                         setState(() {
                           _classification = value!;
                         });
                       },
-                      items: sortingList
-                          .map<DropdownMenuItem<String>>((String value) {
-                        return DropdownMenuItem<String>(
-                          value: value,
-                          child: Text(value),
-                        );
-                      }).toList()),
-                  SizedBox(
-                    width: 10,
+                    ),
                   ),
-                  DropdownButton<String>(
-                      value: _isFrozen,
-                      icon: const Icon(Icons.arrow_drop_down),
-                      elevation: 16,
-                      style: const TextStyle(color: Colors.deepPurple),
-                      underline: Container(
-                        height: 2,
-                        color: Colors.deepPurpleAccent,
-                      ),
+                  Padding(
+                    padding: EdgeInsets.only(left: 15, right: 10),
+                    child: FoodAddModalDropDown(
+                      sortingValue: _isFrozen,
+                      items: frozenList,
                       onChanged: (String? value) {
                         // This is called when the user selects an item.
                         setState(() {
                           _isFrozen = value!;
                         });
                       },
-                      items: frozenList
-                          .map<DropdownMenuItem<String>>((String value) {
-                        return DropdownMenuItem<String>(
-                          value: value,
-                          child: Text(value),
-                        );
-                      }).toList()),
+                    ),
+                  )
                 ],
+              ),
+              const SizedBox(
+                height: 10,
               ),
               OutlinedButton.icon(
                 onPressed: () {
                   showDatePickerPop();
                 },
-                icon: Icon(Icons.date_range_outlined, size: 18),
-                label: Text("Date"),
+                icon: const Icon(
+                  Icons.date_range_outlined,
+                  size: 18,
+                  color: Color(0xff395BA9),
+                ),
+                label: Text(
+                  "Date : ${DateFormat('yyyy-MM-dd').format(_date)}",
+                  style: TextStyle(color: Color(0xff395BA9)),
+                ),
               )
             ],
           ),
@@ -144,16 +120,16 @@ class _FoodAddModalState extends State<FoodAddModal> {
       actions: <Widget>[
         TextButton(
           onPressed: () => Navigator.pop(context, 'Cancel'),
-          child: const Text('Cancel'),
+          child: const Text(
+            'Cancel',
+            style: TextStyle(color: Color(0xff395BA9)),
+          ),
         ),
         TextButton(
           onPressed: () => {
             Navigator.pop(context, 'OK'),
             // if(!_formKey.currentState!.validate());
             _formKey.currentState?.save(),
-            print(_name),
-            print(_quantity),
-            print(_isFrozen),
             foodNotifier.addFood(Food(
                 name: _name,
                 date: _date,
@@ -161,7 +137,7 @@ class _FoodAddModalState extends State<FoodAddModal> {
                 isFrozen: _isFrozen,
                 classification: _classification))
           },
-          child: const Text('OK'),
+          child: const Text('OK', style: TextStyle(color: Color(0xff395BA9))),
         ),
       ],
     );
@@ -171,11 +147,11 @@ class _FoodAddModalState extends State<FoodAddModal> {
     Future<DateTime?> selectedDate = showDatePicker(
       context: context,
       initialDate: DateTime.now(), //초기값
-      firstDate: DateTime(2023), //시작일
-      lastDate: DateTime(2025), //마지막일
+      firstDate: DateTime(2001), //시작일
+      lastDate: DateTime(2100), //마지막일
       builder: (BuildContext context, Widget? child) {
         return Theme(
-          data: ThemeData.light(), //다크 테마
+          data: ThemeData.light(),
           child: child!,
         );
       },
