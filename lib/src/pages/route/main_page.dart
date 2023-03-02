@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
+import '../chat_page.dart';
+
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
 
@@ -24,17 +26,17 @@ class _MainPageState extends State<MainPage> {
 
   final pageList = const <Page>[
     Page(Icons.home_filled, "fridgy"),
-    Page(Icons.restaurant_rounded, "recipe"),
-    Page(Icons.add_box_outlined, "modal"),
     Page(Icons.shopping_cart_rounded, "exchange"),
+    Page(Icons.add_box_outlined, "modal"),
+    Page(Icons.chat_bubble_outline, "chatting"),
     Page(Icons.person, "setting"),
   ];
 
   final _buildBody = <Widget>[
     FridgePage(),
-    SettingPage(),
-    RegisterModal(),
     ExchnagePage(),
+    RegisterModal(),
+    ChattingPage(),
     SettingPage(),
   ];
 
