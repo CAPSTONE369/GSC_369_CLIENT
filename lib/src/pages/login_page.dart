@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:client/src/model/auth_platform.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:client/src/pages/fridge_page.dart';
 import 'package:client/src/pages/route/main_page.dart';
 import 'package:client/src/pages/route/router.dart';
@@ -41,9 +42,7 @@ class _LogInPageState extends State<LogInPage> {
       print(profile);
 
       // final apiUrl = Uri.http('localhost:8080', 'login/kakao');
-
       // final apiResponse = await http.post(apiUrl, body: response.body);
-
       // if (apiResponse.statusCode == 200) {}
 
       setState(() {
@@ -55,6 +54,16 @@ class _LogInPageState extends State<LogInPage> {
     } catch (error) {
       print("카카오톡으로 로그인에 실패하였습니다.");
       print(error);
+    }
+  }
+
+  void signInWithGoogle() async {
+    final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+
+    if (googleUser != null) {
+      print('name = ${googleUser.displayName}');
+      print('email = ${googleUser.email}');
+      print('id = ${googleUser.id}');
     }
   }
 
@@ -94,7 +103,7 @@ class _LogInPageState extends State<LogInPage> {
                     ),
                     _oauth_login_button(
                       'google_logo',
-                      singInWithKakao,
+                      signInWithGoogle,
                     ),
                     _oauth_login_button(
                       'naver_logo',
