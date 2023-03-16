@@ -2,7 +2,6 @@ import 'package:client/src/controller/food_controller.dart';
 import 'package:client/src/pages/login_page.dart';
 import 'package:client/src/pages/fridge_page.dart';
 import 'package:client/src/pages/route/main_page.dart';
-import 'package:client/src/pages/route/router.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:kakao_flutter_sdk_user/kakao_flutter_sdk_user.dart';

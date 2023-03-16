@@ -2,6 +2,7 @@ import 'package:client/src/pages/fridge_page.dart';
 import 'package:client/src/widgets/register/modal/register_bottom_up_modal.dart';
 import 'package:client/src/pages/setting_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
