@@ -28,9 +28,11 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
       });
     controller.repeat(reverse: true);
     super.initState();
+    /*
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       _asyncMethod();
     });
+    */
   }
 
   @override
@@ -39,6 +41,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
     super.dispose();
   }
 
+/*
   _asyncMethod() async {
     accessToken = await storage.read(key: 'acessToken');
     refreshToken = await storage.read(key: 'refreshToken');
@@ -48,6 +51,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
       Navigator.pushNamed(context, '/login');
     }
   }
+*/
 
   @override
   Widget build(BuildContext context) {
