@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:client/src/model/Auth.dart';
 import 'package:client/src/model/auth_platform.dart';
+import 'package:client/src/model/page/login_page_model.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:client/src/pages/fridge_page.dart';
@@ -18,7 +19,6 @@ import 'package:simple_gradient_text/simple_gradient_text.dart';
 import '../../flutter_flow/flutter_flow_model.dart';
 import '../../flutter_flow/flutter_flow_theme.dart';
 import '../../flutter_flow/flutter_flow_widgets.dart';
-import '../model/login_page_model.dart';
 import '../widgets/setting/kakako_button/kakako_button_widget.dart';
 
 class LogInPage extends StatefulWidget {

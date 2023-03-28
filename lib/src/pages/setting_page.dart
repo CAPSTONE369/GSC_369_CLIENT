@@ -5,7 +5,8 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '../../flutter_flow/flutter_flow_model.dart';
-import '../model/setting_page_model.dart';
+import '../model/page/setting_page_model.dart';
+import 'fridge_friend_page_widget.dart';
 
 class SettingPage extends StatefulWidget {
   const SettingPage({super.key});
@@ -172,7 +173,11 @@ class _SettingPageState extends State<SettingPage> {
                             16.0, 12.0, 16.0, 0.0),
                         child: InkWell(
                           onTap: () async {
-                            // context.pushNamed('Fridge_collection');
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        FridgeFriendPageWidget()));
                           },
                           child: Container(
                             width: double.infinity,

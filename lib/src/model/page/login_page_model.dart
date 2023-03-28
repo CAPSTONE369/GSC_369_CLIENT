@@ -1,4 +1,4 @@
-import '../widgets/setting/kakako_button/kakako_button_model.dart';
+import '../../widgets/setting/kakako_button/kakako_button_model.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
