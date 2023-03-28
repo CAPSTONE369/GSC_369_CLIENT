@@ -4,8 +4,8 @@ import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import '../model/fridge_collection_model.dart';
-export '../model/fridge_collection_model.dart';
+import '../model/page/fridge_collection_model.dart';
+export '../model/page/fridge_collection_model.dart';
 
 class FridgeCollectionWidget extends StatefulWidget {
   const FridgeCollectionWidget({Key? key}) : super(key: key);

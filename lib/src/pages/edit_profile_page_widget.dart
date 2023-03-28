@@ -1,5 +1,4 @@
-import 'package:client/src/model/edit_profile_page_model.dart';
-
+import '../model/page/edit_profile_page_model.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -68,10 +67,10 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget> {
                           icon: Icon(
                             Icons.arrow_back_rounded,
                             color: FlutterFlowTheme.of(context).primaryColor,
-                            size: 30.0,
+                            size: 24.0,
                           ),
                           onPressed: () async {
-                            // context.pop();
+                            Navigator.pop(context);
                           },
                         ),
                       ),
@@ -79,9 +78,7 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget> {
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Text(
-                            FFLocalizations.of(context).getText(
-                              'md12e3oq' /* 돌아가기 */,
-                            ),
+                            'Go back',
                             style:
                                 FlutterFlowTheme.of(context).bodyText1.override(
                                       fontFamily: 'Outfit',
@@ -96,12 +93,10 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget> {
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(24.0, 10.0, 0.0, 0.0),
                   child: Text(
-                    FFLocalizations.of(context).getText(
-                      'e3v2tku0' /* 이름 수정하기 */,
-                    ),
+                    '이름 수정하기',
                     style: FlutterFlowTheme.of(context).title3.override(
                           fontFamily: 'Outfit',
-                          fontSize: 32.0,
+                          fontSize: 24.0,
                           fontWeight: FontWeight.normal,
                         ),
                   ),
@@ -158,9 +153,7 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget> {
                 controller: _model.yourNameController,
                 obscureText: false,
                 decoration: InputDecoration(
-                  labelText: FFLocalizations.of(context).getText(
-                    '29oocmkk' /* 나의 이름 */,
-                  ),
+                  labelText: '나의 이름',
                   labelStyle: FlutterFlowTheme.of(context).bodyText2,
                   hintStyle: FlutterFlowTheme.of(context).bodyText2,
                   enabledBorder: OutlineInputBorder(
@@ -210,9 +203,7 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget> {
                   onPressed: () {
                     print('Button pressed ...');
                   },
-                  text: FFLocalizations.of(context).getText(
-                    'c9psjzgd' /* 수정하기 */,
-                  ),
+                  text: '수정하기',
                   options: FFButtonOptions(
                     width: 340.0,
                     height: 60.0,

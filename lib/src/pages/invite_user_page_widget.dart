@@ -8,8 +8,8 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import '../model/invite_user_page_model.dart';
-export '../model/invite_user_page_model.dart';
+import '../model/page/invite_user_page_model.dart';
+export '../model/page/invite_user_page_model.dart';
 
 class InviteUserPageWidget extends StatefulWidget {
   const InviteUserPageWidget({Key? key}) : super(key: key);
