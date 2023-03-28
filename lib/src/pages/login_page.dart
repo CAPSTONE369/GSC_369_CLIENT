@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:client/src/model/Auth.dart';
 import 'package:client/src/model/auth_platform.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:client/src/pages/fridge_page.dart';
 import 'package:client/src/pages/route/main_page.dart';
@@ -12,6 +13,13 @@ import 'package:http/http.dart' as http;
 import 'package:client/src/pages/fridge_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:simple_gradient_text/simple_gradient_text.dart';
+
+import '../../flutter_flow/flutter_flow_model.dart';
+import '../../flutter_flow/flutter_flow_theme.dart';
+import '../../flutter_flow/flutter_flow_widgets.dart';
+import '../model/login_page_model.dart';
+import '../widgets/setting/kakako_button/kakako_button_widget.dart';
 
 class LogInPage extends StatefulWidget {
   const LogInPage({super.key});
@@ -21,6 +29,8 @@ class LogInPage extends StatefulWidget {
 }
 
 class _LogInPageState extends State<LogInPage> {
+  late LoginPageModel _model;
+
   AuthorizationPlatform _platform = AuthorizationPlatform.none;
   static final storage = FlutterSecureStorage();
   dynamic accessToken = '';
@@ -32,6 +42,7 @@ class _LogInPageState extends State<LogInPage> {
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       _asyncMethod();
     });
+    _model = createModel(context, () => LoginPageModel());
   }
 
   _asyncMethod() async {
@@ -122,29 +133,155 @@ class _LogInPageState extends State<LogInPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       body: Center(
-          child: _platform != AuthorizationPlatform.none
-              ? Column()
-              : Column(
+        child: _platform != AuthorizationPlatform.none
+            ? Column()
+            : Align(
+                alignment: AlignmentDirectional(0.0, 0.0),
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    const Text("Welcome To"),
-                    const Text("Speaking Fridgy"),
-                    const SizedBox(height: 100),
-                    _oauth_login_button(
-                      'kakao_logo',
-                      singInWithKakao,
+                    Align(
+                      alignment: AlignmentDirectional(-0.4, 0.0),
+                      child: Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 30.0),
+                        child: GradientText(
+                          'Welcome\nSpeaking Fridge',
+                          textAlign: TextAlign.start,
+                          style:
+                              FlutterFlowTheme.of(context).bodyText1.override(
+                                    fontFamily: 'Outfit',
+                                    fontSize: 30.0,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                          colors: [
+                            FlutterFlowTheme.of(context).primaryText,
+                            Color(0xFF395BA9)
+                          ],
+                          gradientDirection: GradientDirection.ltr,
+                          gradientType: GradientType.linear,
+                        ),
+                      ),
                     ),
-                    _oauth_login_button(
-                      'google_logo',
-                      signInWithGoogle,
+                    Stack(
+                      alignment: AlignmentDirectional(0.0, -0.35),
+                      children: [
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 10.0),
+                          child: FFButtonWidget(
+                            onPressed: () {
+                              print('Button pressed ...');
+                            },
+                            text: '네이버로 시작하기' /* 네이버로 시작하기 */,
+                            options: FFButtonOptions(
+                              width: 300.0,
+                              height: 44.0,
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
+                              iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
+                              color: Color(0xFF03C75A),
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .subtitle2
+                                  .override(
+                                    fontFamily: 'Outfit',
+                                    color: Colors.white,
+                                  ),
+                              elevation: 0.0,
+                              borderSide: BorderSide(
+                                color: Colors.transparent,
+                                width: 1.0,
+                              ),
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                          ),
+                        ),
+                        Align(
+                          alignment: AlignmentDirectional(-0.7, 0.0),
+                          child: Image.asset(
+                            'assets/image/btnG_.png',
+                            width: 32.0,
+                            height: 32.0,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ],
                     ),
-                    _oauth_login_button(
-                      'naver_logo',
-                      singInWithKakao,
-                    )
+                    Align(
+                      alignment: AlignmentDirectional(0.0, 0.0),
+                      child: wrapWithModel(
+                        model: _model.kakakoButtonModel,
+                        updateCallback: () => setState(() {}),
+                        child: KakakoButtonWidget(),
+                      ),
+                    ),
+                    Align(
+                      alignment: AlignmentDirectional(0.0, 0.0),
+                      child: Container(
+                        width: 300.0,
+                        height: 44.0,
+                        child: Stack(
+                          children: [
+                            Align(
+                              alignment: AlignmentDirectional(0.0, 0.0),
+                              child: FFButtonWidget(
+                                onPressed: () {
+                                  signInWithGoogle();
+                                },
+                                text: 'Sign in with Google',
+                                icon: Icon(
+                                  Icons.add,
+                                  color: Colors.transparent,
+                                  size: 20.0,
+                                ),
+                                options: FFButtonOptions(
+                                  width: 300.0,
+                                  height: 44.0,
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 8.0, 0.0),
+                                  color: Colors.white,
+                                  textStyle: GoogleFonts.getFont(
+                                    'Roboto',
+                                    color: Color(0xFF606060),
+                                    fontSize: 17.0,
+                                  ),
+                                  elevation: 0.0,
+                                  borderSide: BorderSide(
+                                    color: Colors.transparent,
+                                    width: 0.0,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Align(
+                              alignment: AlignmentDirectional(-0.9, 0.0),
+                              child: Container(
+                                width: 22.0,
+                                height: 22.0,
+                                clipBehavior: Clip.antiAlias,
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                ),
+                                child: Image.network(
+                                  'https://i0.wp.com/nanophorm.com/wp-content/uploads/2018/04/google-logo-icon-PNG-Transparent-Background.png?w=1000&ssl=1',
+                                  fit: BoxFit.contain,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
                   ],
                 )),
+      ),
     );
   }
 }
