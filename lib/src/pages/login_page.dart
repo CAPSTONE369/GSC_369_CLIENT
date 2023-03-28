@@ -150,7 +150,7 @@ class _LogInPageState extends State<LogInPage> {
                         padding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 30.0),
                         child: GradientText(
-                          'Welcome\nSpeaking Fridge',
+                          'Welcome ZEF,\nZero Wasted Fridge',
                           textAlign: TextAlign.start,
                           style:
                               FlutterFlowTheme.of(context).bodyText1.override(
