@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../../flutter_flow/flutter_flow_icon_button.dart';
 import '../../../flutter_flow/flutter_flow_theme.dart';
+import '../../pages/fridge_collection_widget.dart';
 
 class FridgeAppBar extends StatefulWidget {
   FridgeAppBar();
@@ -30,7 +31,12 @@ class _FridgeAppBarState extends State<FridgeAppBar> {
                 Flexible(
                   flex: 10,
                   child: InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => FridgeCollectionWidget()));
+                    },
                     child: Row(
                       children: [
                         const Icon(
