@@ -45,7 +45,7 @@ class _InviteUserPageWidgetState extends State<InviteUserPageWidget>
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(100.0),
+        preferredSize: Size.fromHeight(150.0),
         child: AppBar(
           backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
           automaticallyImplyLeading: false,
@@ -77,17 +77,16 @@ class _InviteUserPageWidgetState extends State<InviteUserPageWidget>
                               size: 30.0,
                             ),
                             onPressed: () async {
-                              // context.pop();
+                              Navigator.pop(context);
                             },
                           ),
                         ),
+                        /*
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
                               4.0, 0.0, 0.0, 0.0),
                           child: Text(
-                            FFLocalizations.of(context).getText(
-                              'vv61jrjx' /* 돌아가기 */,
-                            ),
+                            '돌아가기',
                             style: FlutterFlowTheme.of(context).title2.override(
                                   fontFamily: 'Outfit',
                                   color: Color(0xFF395BA9),
@@ -95,6 +94,7 @@ class _InviteUserPageWidgetState extends State<InviteUserPageWidget>
                                 ),
                           ),
                         ),
+                        */
                       ],
                     ),
                   ),
@@ -102,9 +102,7 @@ class _InviteUserPageWidgetState extends State<InviteUserPageWidget>
                     padding:
                         EdgeInsetsDirectional.fromSTEB(24.0, 10.0, 0.0, 0.0),
                     child: Text(
-                      FFLocalizations.of(context).getText(
-                        '80in378o' /* 친구 등록하기 */,
-                      ),
+                      '친구 등록하기',
                       textAlign: TextAlign.center,
                       style: FlutterFlowTheme.of(context).title1.override(
                             fontFamily: 'Outfit',
@@ -121,112 +119,108 @@ class _InviteUserPageWidgetState extends State<InviteUserPageWidget>
           elevation: 2.0,
         ),
       ),
-      body: Column(
-        mainAxisSize: MainAxisSize.max,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Row(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              Expanded(
-                child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(16.0, 8.0, 16.0, 0.0),
-                  child: Text(
-                    FFLocalizations.of(context).getText(
-                      '1disvnh2' /* 등록하지 않은 친구에게는 요청을 보낼 수 없습니다. 정... */,
+      body: SafeArea(
+        child: Column(
+          mainAxisSize: MainAxisSize.max,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Row(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                Expanded(
+                  child: Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(16.0, 8.0, 16.0, 0.0),
+                    child: Text(
+                      '등록하지 않은 친구에게는 요청을 보낼 수 없습니다. 정...',
+                      style: FlutterFlowTheme.of(context).bodyText2,
                     ),
-                    style: FlutterFlowTheme.of(context).bodyText2,
                   ),
                 ),
-              ),
-            ],
-          ),
-          Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(16.0, 20.0, 16.0, 0.0),
-            child: TextFormField(
-              controller: _model.phoneNumberController,
-              autofocus: true,
-              obscureText: false,
-              decoration: InputDecoration(
-                labelText: FFLocalizations.of(context).getText(
-                  'vo1s8iyo' /* 친구 이메일  */,
-                ),
-                labelStyle: FlutterFlowTheme.of(context).bodyText2,
-                hintText: FFLocalizations.of(context).getText(
-                  '49a268da' /* 예) speakingFridge@gmail.com */,
-                ),
-                hintStyle: FlutterFlowTheme.of(context).bodyText2,
-                enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(
-                    color: FlutterFlowTheme.of(context).primaryBackground,
-                    width: 2.0,
-                  ),
-                  borderRadius: BorderRadius.circular(40.0),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(
-                    color: Color(0x00000000),
-                    width: 2.0,
-                  ),
-                  borderRadius: BorderRadius.circular(40.0),
-                ),
-                errorBorder: OutlineInputBorder(
-                  borderSide: BorderSide(
-                    color: Color(0x00000000),
-                    width: 2.0,
-                  ),
-                  borderRadius: BorderRadius.circular(40.0),
-                ),
-                focusedErrorBorder: OutlineInputBorder(
-                  borderSide: BorderSide(
-                    color: Color(0x00000000),
-                    width: 2.0,
-                  ),
-                  borderRadius: BorderRadius.circular(40.0),
-                ),
-                filled: true,
-                fillColor: FlutterFlowTheme.of(context).secondaryBackground,
-                contentPadding:
-                    EdgeInsetsDirectional.fromSTEB(20.0, 24.0, 20.0, 24.0),
-              ),
-              style: FlutterFlowTheme.of(context).bodyText1.override(
-                    fontFamily: 'Outfit',
-                    color: Color(0xFF0F1113),
-                  ),
-              maxLines: null,
-              keyboardType: TextInputType.phone,
-              validator:
-                  _model.phoneNumberControllerValidator.asValidator(context),
+              ],
             ),
-          ),
-          Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
-            child: FFButtonWidget(
-              onPressed: () {
-                print('Button-Login pressed ...');
-              },
-              text: FFLocalizations.of(context).getText(
-                'aygm9ohj' /* 등록 */,
-              ),
-              options: FFButtonOptions(
-                width: 230.0,
-                height: 50.0,
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                color: FlutterFlowTheme.of(context).primaryColor,
-                textStyle: FlutterFlowTheme.of(context).subtitle2.override(
+            Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(16.0, 20.0, 16.0, 0.0),
+              child: TextFormField(
+                controller: _model.phoneNumberController,
+                autofocus: true,
+                obscureText: false,
+                decoration: InputDecoration(
+                  labelText: '친구 이메일',
+                  labelStyle: FlutterFlowTheme.of(context).bodyText2,
+                  hintText: 'speakingFridge@gmail.com',
+                  hintStyle: FlutterFlowTheme.of(context).bodyText2,
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: FlutterFlowTheme.of(context).primaryBackground,
+                      width: 2.0,
+                    ),
+                    borderRadius: BorderRadius.circular(40.0),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Color(0x00000000),
+                      width: 2.0,
+                    ),
+                    borderRadius: BorderRadius.circular(40.0),
+                  ),
+                  errorBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Color(0x00000000),
+                      width: 2.0,
+                    ),
+                    borderRadius: BorderRadius.circular(40.0),
+                  ),
+                  focusedErrorBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Color(0x00000000),
+                      width: 2.0,
+                    ),
+                    borderRadius: BorderRadius.circular(40.0),
+                  ),
+                  filled: true,
+                  fillColor: FlutterFlowTheme.of(context).secondaryBackground,
+                  contentPadding:
+                      EdgeInsetsDirectional.fromSTEB(20.0, 24.0, 20.0, 24.0),
+                ),
+                style: FlutterFlowTheme.of(context).bodyText1.override(
                       fontFamily: 'Outfit',
-                      color: Colors.white,
+                      color: Color(0xFF0F1113),
                     ),
-                elevation: 3.0,
-                borderSide: BorderSide(
-                  color: Colors.transparent,
-                  width: 1.0,
+                maxLines: null,
+                keyboardType: TextInputType.phone,
+                validator:
+                    _model.phoneNumberControllerValidator.asValidator(context),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
+              child: FFButtonWidget(
+                onPressed: () {
+                  print('Button-Login pressed ...');
+                },
+                text: '등록',
+                options: FFButtonOptions(
+                  width: 230.0,
+                  height: 50.0,
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                  iconPadding:
+                      EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                  color: FlutterFlowTheme.of(context).primaryColor,
+                  textStyle: FlutterFlowTheme.of(context).subtitle2.override(
+                        fontFamily: 'Outfit',
+                        color: Colors.white,
+                      ),
+                  elevation: 3.0,
+                  borderSide: BorderSide(
+                    color: Colors.transparent,
+                    width: 1.0,
+                  ),
                 ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

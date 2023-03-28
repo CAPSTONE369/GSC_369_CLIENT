@@ -133,22 +133,6 @@ class _FridgeCollectionWidgetState extends State<FridgeCollectionWidget> {
                                               FridgeFriendPageWidget()));
                                 },
                                 fridge: fridgeList[i])
-
-                          /*
-                          FridgeCollectionCard(
-                            fridge: Fridge(
-                                fridgeId: 1,
-                                fridgeName: '개인',
-                                fridgeType: '개인'),
-                            routefunc: () async {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) =>
-                                          FridgeFriendPageWidget()));
-                            },
-                          ),
-                          */
                         ],
                       ),
                     ),

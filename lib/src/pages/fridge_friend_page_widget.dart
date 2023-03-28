@@ -11,6 +11,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
+import 'invite_user_page_widget.dart';
+
 class FridgeFriendPageWidget extends StatefulWidget {
   const FridgeFriendPageWidget({Key? key}) : super(key: key);
 
@@ -97,7 +99,10 @@ class _FridgeFriendPageWidgetState extends State<FridgeFriendPageWidget> {
               padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 25.0),
               child: FFButtonWidget(
                 onPressed: () async {
-                  // context.pushNamed('invite_user_page');
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => InviteUserPageWidget()));
                 },
                 text: '냉장고 친구 등록하기',
                 options: FFButtonOptions(
