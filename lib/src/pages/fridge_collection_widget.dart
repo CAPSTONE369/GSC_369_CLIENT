@@ -69,7 +69,7 @@ class _FridgeCollectionWidgetState extends State<FridgeCollectionWidget> {
           },
         ),
         title: Text(
-          '냉장고 친구 관리',
+          'Manage Fridges',
           style: FlutterFlowTheme.of(context).title3,
         ),
         actions: [],
@@ -93,9 +93,9 @@ class _FridgeCollectionWidgetState extends State<FridgeCollectionWidget> {
                     children: [
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 4.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 4.0),
                         child: Text(
-                          '냉장고를 선택해 친구를 추가하세요',
+                          'Select fridge and register new member',
                           style: FlutterFlowTheme.of(context).bodyText1,
                         ),
                       ),
@@ -172,7 +172,7 @@ class _FridgeCollectionWidgetState extends State<FridgeCollectionWidget> {
                     padding:
                         EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 44.0),
                     child: Text(
-                      '다른 냉장고 등록',
+                      'Make Other Fridge',
                       textAlign: TextAlign.center,
                       style: FlutterFlowTheme.of(context).title2.override(
                             fontFamily: 'Outfit',
