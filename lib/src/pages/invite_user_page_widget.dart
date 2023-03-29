@@ -102,7 +102,7 @@ class _InviteUserPageWidgetState extends State<InviteUserPageWidget>
                     padding:
                         EdgeInsetsDirectional.fromSTEB(24.0, 10.0, 0.0, 0.0),
                     child: Text(
-                      '친구 등록하기',
+                      'Register New Member',
                       textAlign: TextAlign.center,
                       style: FlutterFlowTheme.of(context).title1.override(
                             fontFamily: 'Outfit',
@@ -132,7 +132,7 @@ class _InviteUserPageWidgetState extends State<InviteUserPageWidget>
                     padding:
                         EdgeInsetsDirectional.fromSTEB(16.0, 8.0, 16.0, 0.0),
                     child: Text(
-                      '등록하지 않은 친구에게는 요청을 보낼 수 없습니다. 정...',
+                      'You can only invite registed user',
                       style: FlutterFlowTheme.of(context).bodyText2,
                     ),
                   ),
@@ -146,7 +146,7 @@ class _InviteUserPageWidgetState extends State<InviteUserPageWidget>
                 autofocus: true,
                 obscureText: false,
                 decoration: InputDecoration(
-                  labelText: '친구 이메일',
+                  labelText: 'Member Email',
                   labelStyle: FlutterFlowTheme.of(context).bodyText2,
                   hintText: 'speakingFridge@gmail.com',
                   hintStyle: FlutterFlowTheme.of(context).bodyText2,

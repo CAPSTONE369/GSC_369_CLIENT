@@ -9,8 +9,8 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
-List<String> sortingList = <String>['육류', '채소', '유제품', '과일', '기타'];
-List<String> frozenList = <String>['냉동', '냉장'];
+List<String> sortingList = <String>['MEAT', 'VEGE', 'DAIRY', 'FRUIT', 'ETC'];
+List<String> frozenList = <String>['FROZEN', 'COLD', 'ROOM TEMP'];
 
 class FoodAddModal extends StatefulWidget {
   const FoodAddModal({super.key});

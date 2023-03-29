@@ -60,7 +60,7 @@ class _WastedPageWidgetState extends State<WastedPageWidget>
           },
         ),
         title: Text(
-          'ZERO WASTE RECIPE',
+          'ZERO WASTE RECEIPT',
           textAlign: TextAlign.start,
           style: FlutterFlowTheme.of(context).title3,
         ),
@@ -80,9 +80,9 @@ class _WastedPageWidgetState extends State<WastedPageWidget>
                   alignment: AlignmentDirectional(-0.9, 0.0),
                   child: Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(10.0, 20.0, 0.0, 0.0),
                     child: Text(
-                      '월 별 통계',
+                      'Stats By Month',
                       textAlign: TextAlign.start,
                       style: FlutterFlowTheme.of(context).title3.override(
                             fontFamily: 'Outfit',
@@ -103,7 +103,7 @@ class _WastedPageWidgetState extends State<WastedPageWidget>
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Text(
-                            '1월',
+                            'JAN',
                             style:
                                 FlutterFlowTheme.of(context).bodyText1.override(
                                       fontFamily: 'Outfit',
@@ -132,7 +132,7 @@ class _WastedPageWidgetState extends State<WastedPageWidget>
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Text(
-                            '2월',
+                            'FEB',
                             style:
                                 FlutterFlowTheme.of(context).bodyText1.override(
                                       fontFamily: 'Outfit',
@@ -160,7 +160,7 @@ class _WastedPageWidgetState extends State<WastedPageWidget>
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Text(
-                            '3월',
+                            'MAR',
                             style:
                                 FlutterFlowTheme.of(context).bodyText1.override(
                                       fontFamily: 'Outfit',
@@ -188,7 +188,7 @@ class _WastedPageWidgetState extends State<WastedPageWidget>
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Text(
-                            '4월',
+                            'APL',
                             style:
                                 FlutterFlowTheme.of(context).bodyText1.override(
                                       fontFamily: 'Outfit',
@@ -216,7 +216,7 @@ class _WastedPageWidgetState extends State<WastedPageWidget>
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Text(
-                            '5월',
+                            'MAY',
                             style:
                                 FlutterFlowTheme.of(context).bodyText1.override(
                                       fontFamily: 'Outfit',
@@ -246,12 +246,12 @@ class _WastedPageWidgetState extends State<WastedPageWidget>
                 ),
                 Padding(
                   padding:
-                      EdgeInsetsDirectional.fromSTEB(20.0, 12.0, 20.0, 12.0),
+                      EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 12.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Text(
-                        '이번 달 정산',
+                        'FOOD WASTED BILL \n/ THIS MONTH',
                         style: FlutterFlowTheme.of(context).title3.override(
                               fontFamily: 'Outfit',
                               fontWeight: FontWeight.w500,

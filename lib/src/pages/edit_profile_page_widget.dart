@@ -93,7 +93,7 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget> {
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(24.0, 10.0, 0.0, 0.0),
                   child: Text(
-                    '이름 수정하기',
+                    'Modify Nickname',
                     style: FlutterFlowTheme.of(context).title3.override(
                           fontFamily: 'Outfit',
                           fontSize: 24.0,
@@ -153,7 +153,7 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget> {
                 controller: _model.yourNameController,
                 obscureText: false,
                 decoration: InputDecoration(
-                  labelText: '나의 이름',
+                  labelText: 'My Name',
                   labelStyle: FlutterFlowTheme.of(context).bodyText2,
                   hintStyle: FlutterFlowTheme.of(context).bodyText2,
                   enabledBorder: OutlineInputBorder(
@@ -203,7 +203,7 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget> {
                   onPressed: () {
                     print('Button pressed ...');
                   },
-                  text: '수정하기',
+                  text: 'SUBMIT',
                   options: FFButtonOptions(
                     width: 340.0,
                     height: 60.0,

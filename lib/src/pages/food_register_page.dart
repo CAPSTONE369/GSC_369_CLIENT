@@ -20,7 +20,7 @@ class _FoodRegisterFormPageState extends State<FoodRegisterFormPage> {
     return Scaffold(
         appBar: AppBar(
           title: const Text(
-            "식재료 추가하기",
+            "ADD NEW FOOD IN FRIDGE",
             style: TextStyle(
                 color: Color(0xff395BA9), fontWeight: FontWeight.bold),
           ),

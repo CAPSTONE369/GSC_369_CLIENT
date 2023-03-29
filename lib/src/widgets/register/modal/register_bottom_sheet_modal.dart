@@ -39,7 +39,7 @@ class _FoodRegisterBottomSheetModalState
                         builder: (BuildContext context) => FoodAddModal());
                   },
                   child: const Text(
-                    '+ 상품 추가하기',
+                    '+ Add New Food',
                     style: TextStyle(
                         color: Color(0xff395BA9), fontWeight: FontWeight.bold),
                   ),
@@ -55,7 +55,7 @@ class _FoodRegisterBottomSheetModalState
                           MaterialStateProperty.all(Color(0xff395BA9))),
                   onPressed: () {},
                   child: const Text(
-                    '상품 등록하기',
+                    'SUBMIT',
                     style: TextStyle(
                         color: Colors.white, fontWeight: FontWeight.bold),
                   ),
