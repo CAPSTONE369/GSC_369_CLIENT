@@ -3,10 +3,10 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
 const List<Widget> BigMenu = <Widget>[
-  Text('종합'),
-  Text('육류'),
-  Text('채소'),
-  Text('유제품'),
+  Text('ALL'),
+  Text('MEAT'),
+  Text('VEGE'),
+  Text('DAIRY'),
 ];
 
 class FridgeBigDivider extends StatefulWidget {

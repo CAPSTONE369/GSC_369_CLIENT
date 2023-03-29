@@ -59,7 +59,7 @@ class _SettingPageState extends State<SettingPage> {
         ),
          */
         title: Text(
-          '설정',
+          'Settings',
           style: FlutterFlowTheme.of(context).subtitle2.override(
                 fontFamily: 'Outfit',
                 color: FlutterFlowTheme.of(context).primaryText,
@@ -165,7 +165,7 @@ class _SettingPageState extends State<SettingPage> {
                         padding: EdgeInsetsDirectional.fromSTEB(
                             16.0, 16.0, 0.0, 0.0),
                         child: Text(
-                          '계정 정보',
+                          'Account Info',
                           style: FlutterFlowTheme.of(context).subtitle2,
                         ),
                       ),
@@ -212,7 +212,7 @@ class _SettingPageState extends State<SettingPage> {
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         12.0, 0.0, 0.0, 0.0),
                                     child: Text(
-                                      '냉장고 친구 관리',
+                                      'Manage Fridge Friends',
                                       style: FlutterFlowTheme.of(context)
                                           .bodyText2,
                                     ),
@@ -269,7 +269,7 @@ class _SettingPageState extends State<SettingPage> {
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       12.0, 0.0, 0.0, 0.0),
                                   child: Text(
-                                    '알림 설정',
+                                    'Alert Setting',
                                     style:
                                         FlutterFlowTheme.of(context).bodyText2,
                                   ),
@@ -334,7 +334,7 @@ class _SettingPageState extends State<SettingPage> {
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         12.0, 0.0, 0.0, 0.0),
                                     child: Text(
-                                      '이름 변경하기',
+                                      'Modify Nickname',
                                       style: FlutterFlowTheme.of(context)
                                           .bodyText2,
                                     ),
@@ -360,7 +360,7 @@ class _SettingPageState extends State<SettingPage> {
                         padding: EdgeInsetsDirectional.fromSTEB(
                             16.0, 16.0, 0.0, 0.0),
                         child: Text(
-                          '일반',
+                          'General',
                           style: FlutterFlowTheme.of(context).subtitle2,
                         ),
                       ),
@@ -399,7 +399,7 @@ class _SettingPageState extends State<SettingPage> {
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       12.0, 0.0, 0.0, 0.0),
                                   child: Text(
-                                    '서비스 이용 규정',
+                                    'Service Use Rules',
                                     style:
                                         FlutterFlowTheme.of(context).bodyText2,
                                   ),
@@ -455,7 +455,7 @@ class _SettingPageState extends State<SettingPage> {
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       12.0, 0.0, 0.0, 0.0),
                                   child: Text(
-                                    '지원하기',
+                                    'Supprot Info',
                                     style:
                                         FlutterFlowTheme.of(context).bodyText2,
                                   ),

@@ -3,9 +3,9 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
 const List<Widget> SmallMenu = <Widget>[
-  Text('전체'),
-  Text('냉장'),
-  Text('냉동'),
+  Text('All'),
+  Text('COLD'),
+  Text('FROZEN'),
 ];
 
 class FridgeSmallDivider extends StatefulWidget {

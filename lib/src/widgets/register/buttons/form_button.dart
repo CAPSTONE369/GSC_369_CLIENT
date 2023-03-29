@@ -44,7 +44,7 @@ class _RegisterFormButtonState extends State<RegisterFormButton> {
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: const Text(
-                  "직접 입력",
+                  "WRITE",
                   style: TextStyle(fontSize: 16),
                 ),
               ),

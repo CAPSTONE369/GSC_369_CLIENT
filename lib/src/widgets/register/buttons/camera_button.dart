@@ -58,7 +58,7 @@ class _RegisterCameraButtonState extends State<RegisterCameraButton> {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8),
                 ),
-                child: const Text("영수증 사진 찍기", style: TextStyle(fontSize: 16)),
+                child: const Text("CAMERA", style: TextStyle(fontSize: 16)),
               ),
             ),
             const Flexible(flex: 2, child: SizedBox.expand()),

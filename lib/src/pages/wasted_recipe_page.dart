@@ -60,7 +60,7 @@ class _WastedPageWidgetState extends State<WastedPageWidget>
           },
         ),
         title: Text(
-          '식재료 영수증',
+          'ZERO WASTE RECIPE',
           textAlign: TextAlign.start,
           style: FlutterFlowTheme.of(context).title3,
         ),

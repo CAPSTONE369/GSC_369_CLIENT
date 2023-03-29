@@ -66,7 +66,7 @@ class _FridgeFriendPageWidgetState extends State<FridgeFriendPageWidget> {
           },
         ),
         title: Text(
-          '{냉장고 이름} 멤버',
+          'Members',
           style: FlutterFlowTheme.of(context).title3,
         ),
         actions: [],
@@ -104,7 +104,7 @@ class _FridgeFriendPageWidgetState extends State<FridgeFriendPageWidget> {
                       MaterialPageRoute(
                           builder: (context) => InviteUserPageWidget()));
                 },
-                text: '냉장고 친구 등록하기',
+                text: 'Register new Friend',
                 options: FFButtonOptions(
                   width: 230.0,
                   height: 50.0,

@@ -38,7 +38,7 @@ class _RegisterImageButtonState extends State<RegisterImageButton> {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8),
                 ),
-                child: const Text("갤러리 사진 업로드", style: TextStyle(fontSize: 16)),
+                child: const Text("PHOTO", style: TextStyle(fontSize: 16)),
               ),
             ),
             const Flexible(flex: 2, child: SizedBox.expand()),
