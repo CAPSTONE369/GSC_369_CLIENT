@@ -1,16 +1,27 @@
-# client
+# 🍙 ZEF-CLIENT
 
-A new Flutter project.
+- This repository has code of ZEF's Client.
+- ZEF build android & iOS application **using Flutter**, and we consider this is the essential solution of our project.
 
-## Getting Started
+<br / >
 
-This project is a starting point for a Flutter application.
+# Getting Started - How To Launch?
 
-A few resources to get you started if this is your first Flutter project:
+## 1. Install Flutter
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- You can install flutter with official document of Flutter.
+- Follow step by step.
+- [Link - Install Flutter](https://flutter-ko.dev/docs/get-started/install)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 2. You can launch this Demo Application on any devices(emulator), but we recommand use:
+
+**IPHONE 12 Pro / over (v.) iOS 15**
+
+## 3. Type below scripts in the command prompt(or Bash)
+
+```bash
+cd {root directory of this proejct}
+flutter doctor
+flutter pub get
+flutter run
+```
