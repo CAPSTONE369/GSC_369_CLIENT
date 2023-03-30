@@ -91,7 +91,7 @@ flutter:
     - assets/image/naver_logo.png
     - assets/image/google_logo.png
     - assets/image/modal_drag_handle.png
-    - assets/config/.env
+    #  - assets/config/.env
     - assets/
     - assets/image/kakao_login_medium_wide.png
     - assets/image/btnG_.png
