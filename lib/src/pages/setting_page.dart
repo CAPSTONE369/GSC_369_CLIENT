@@ -53,11 +53,12 @@ class _SettingPageState extends State<SettingPage> {
 
   void loadingUserInfo() async {
     final apiUrl = Uri.https('api.zefridge.xyz', 'members/current');
-    print(storage.read(key: 'accessToken'));
+    final Map<String, String> tokens = await storage.readAll();
+    // final String? token = await storage.read(key: 'accessToken');
+    print(tokens['accessToken']);
     var userInfo = await http.get(apiUrl, headers: {
       "Content-Type": "application/json",
-      "Authorization":
-          "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdW5ueWluc3VtbWVyQGV3aGFpbi5uZXQiLCJpYXQiOjE2ODQxMzE1ODIsImV4cCI6MTY4NDEzMzM4Mn0.hq4PCuVDK8Vm_tTmmxJbiO4t9EMkBFXu5oL7Kw1jwvk"
+      "Authorization": tokens['accessToken'].toString()
     });
     setState(() {
       decodedUserInfo = jsonDecode(utf8.decode(userInfo.bodyBytes));
