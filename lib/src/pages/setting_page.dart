@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:ffi';
 import 'dart:math';
 
 import 'package:cached_network_image/cached_network_image.dart';
@@ -28,13 +29,18 @@ class _SettingPageState extends State<SettingPage> {
   final _unfocusNode = FocusNode();
 
   static final storage = FlutterSecureStorage();
-  late var decodedUserInfo;
+  late Map<String, dynamic> decodedUserInfo = {
+    "memberId": 1,
+    "name": "loading...",
+    "email": "loading...",
+    "profile": "loading..."
+  };
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => SettingPageModel());
     loadingUserInfo();
+    _model = createModel(context, () => SettingPageModel());
   }
 
   @override
@@ -47,14 +53,18 @@ class _SettingPageState extends State<SettingPage> {
 
   void loadingUserInfo() async {
     final apiUrl = Uri.https('api.zefridge.xyz', 'members/current');
-    print(storage.read(key: 'acessToken').toString());
+    print(storage.read(key: 'accessToken'));
     var userInfo = await http.get(apiUrl, headers: {
       "Content-Type": "application/json",
       "Authorization":
-          "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdW5ueWluc3VtbWVyQGV3aGFpbi5uZXQiLCJpYXQiOjE2ODQxMjMzMTksImV4cCI6MTY4NDEyNTExOX0.EHpboe5wZgM-Vq_g3P8b1n3IId9rhy4sdxebG5ybjuE"
+          "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdW5ueWluc3VtbWVyQGV3aGFpbi5uZXQiLCJpYXQiOjE2ODQxMzE1ODIsImV4cCI6MTY4NDEzMzM4Mn0.hq4PCuVDK8Vm_tTmmxJbiO4t9EMkBFXu5oL7Kw1jwvk"
     });
-    decodedUserInfo = jsonDecode(utf8.decode(userInfo.bodyBytes));
-    print(decodedUserInfo['name']);
+    setState(() {
+      decodedUserInfo = jsonDecode(utf8.decode(userInfo.bodyBytes));
+    });
+
+    print(decodedUserInfo.runtimeType);
+    print(decodedUserInfo);
   }
 
   @override
