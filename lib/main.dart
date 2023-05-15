@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         fontFamily: 'Noto_Serif_KR',
       ),
-      initialRoute: "/",
+      initialRoute: "/login",
       routes: {
         '/': (context) => const MainPage(),
         '/login': (context) => const LogInPage(),
