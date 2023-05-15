@@ -1,6 +1,11 @@
+import 'dart:convert';
+import 'dart:math';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutter/services.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:http/http.dart' as http;
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -22,10 +27,14 @@ class _SettingPageState extends State<SettingPage> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
   final _unfocusNode = FocusNode();
 
+  static final storage = FlutterSecureStorage();
+  late var decodedUserInfo;
+
   @override
   void initState() {
     super.initState();
     _model = createModel(context, () => SettingPageModel());
+    loadingUserInfo();
   }
 
   @override
@@ -34,6 +43,18 @@ class _SettingPageState extends State<SettingPage> {
 
     _unfocusNode.dispose();
     super.dispose();
+  }
+
+  void loadingUserInfo() async {
+    final apiUrl = Uri.https('api.zefridge.xyz', 'members/current');
+    print(storage.read(key: 'acessToken').toString());
+    var userInfo = await http.get(apiUrl, headers: {
+      "Content-Type": "application/json",
+      "Authorization":
+          "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdW5ueWluc3VtbWVyQGV3aGFpbi5uZXQiLCJpYXQiOjE2ODQxMjMzMTksImV4cCI6MTY4NDEyNTExOX0.EHpboe5wZgM-Vq_g3P8b1n3IId9rhy4sdxebG5ybjuE"
+    });
+    decodedUserInfo = jsonDecode(utf8.decode(userInfo.bodyBytes));
+    print(decodedUserInfo['name']);
   }
 
   @override
@@ -111,8 +132,7 @@ class _SettingPageState extends State<SettingPage> {
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(40.0),
                               child: CachedNetworkImage(
-                                imageUrl:
-                                    'https://avatars.githubusercontent.com/u/80109963?v=4',
+                                imageUrl: decodedUserInfo['profile'],
                                 width: 60.0,
                                 height: 60.0,
                                 fit: BoxFit.cover,
@@ -129,11 +149,12 @@ class _SettingPageState extends State<SettingPage> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                'Sunny Lee',
+                                decodedUserInfo['name'],
                                 style: FlutterFlowTheme.of(context)
                                     .title3
                                     .override(
                                       fontFamily: 'Outfit',
+                                      fontSize: 16,
                                       color: FlutterFlowTheme.of(context)
                                           .primaryText,
                                     ),
@@ -142,7 +163,7 @@ class _SettingPageState extends State<SettingPage> {
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 4.0, 0.0, 0.0),
                                 child: Text(
-                                  'dev.sunnylee@gmail.com',
+                                  decodedUserInfo['email'],
                                   style: FlutterFlowTheme.of(context).bodyText2,
                                 ),
                               ),

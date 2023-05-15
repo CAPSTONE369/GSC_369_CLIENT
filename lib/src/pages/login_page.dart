@@ -104,8 +104,14 @@ class _LogInPageState extends State<LogInPage> {
       var authResponse = jsonDecode(utf8.decode(apiResponse.bodyBytes));
       Auth auth =
           Auth(authResponse['accessToken'], authResponse['refreshToken']);
+      print(authResponse['accessToken']);
       await storage.write(key: 'accessToken', value: auth.accessToken);
       await storage.write(key: 'refreshToken', value: auth.refreshToken);
+
+      String accessToken = storage.read(key: 'accessToken').toString();
+
+      print(accessToken.toString());
+
       // ignore: use_build_context_synchronously
       Navigator.push(
           context, MaterialPageRoute(builder: (context) => MainPage()));
