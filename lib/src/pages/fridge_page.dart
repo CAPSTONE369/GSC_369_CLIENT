@@ -43,7 +43,7 @@ class _FridgePageState extends State<FridgePage> {
       },
     );
     info = jsonDecode(utf8.decode(foodInfo.bodyBytes));
-    print(info[0].toString());
+    print(info[info.length - 1].toString());
   }
 
   @override

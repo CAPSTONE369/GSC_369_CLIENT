@@ -1,5 +1,7 @@
+import 'package:client/src/controller/food_controller.dart';
 import 'package:client/src/widgets/register/modal/food_add_modal.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class FoodRegisterBottomSheetModal extends StatefulWidget {
   const FoodRegisterBottomSheetModal({super.key});
@@ -15,6 +17,7 @@ class _FoodRegisterBottomSheetModalState
 
   @override
   Widget build(BuildContext context) {
+    FoodNotifier foodNotifier = Provider.of<FoodNotifier>(context);
     return Container(
         color: Colors.white,
         height: aheight,
@@ -53,7 +56,9 @@ class _FoodRegisterBottomSheetModalState
                   style: ButtonStyle(
                       backgroundColor:
                           MaterialStateProperty.all(Color(0xff395BA9))),
-                  onPressed: () {},
+                  onPressed: () {
+                    foodNotifier.submit();
+                  },
                   child: const Text(
                     'SUBMIT',
                     style: TextStyle(
