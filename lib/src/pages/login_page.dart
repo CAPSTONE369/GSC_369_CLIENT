@@ -91,17 +91,20 @@ class _LogInPageState extends State<LogInPage> {
     final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
 
     if (googleUser != null) {
-      final apiUrl = Uri.http('api.zefridge.xyz', 'login/google');
+      print(googleUser);
+      final apiUrl = Uri.https('api.zefridge.xyz', 'login/google');
       Map<String, dynamic> googleJsonRequest = {
-        'name': googleUser.displayName,
-        'email': googleUser.email,
         'id': googleUser.id,
-        'profile': googleUser.photoUrl
+        'name': googleUser.displayName,
+        'profile': googleUser.photoUrl,
+        'email': googleUser.email
       };
       final apiResponse = await http.post(apiUrl,
           headers: {"Content-Type": "application/json"},
           body: jsonEncode(googleJsonRequest));
+
       var authResponse = jsonDecode(utf8.decode(apiResponse.bodyBytes));
+      print(authResponse);
       Auth auth =
           Auth(authResponse['accessToken'], authResponse['refreshToken']);
       print(authResponse['accessToken']);

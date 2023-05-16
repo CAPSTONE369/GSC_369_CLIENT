@@ -1,7 +1,11 @@
+import 'package:client/src/model/food.dart';
 import 'package:flutter/material.dart';
 
 class FridgeFoodCard extends StatelessWidget {
-  const FridgeFoodCard({super.key});
+  const FridgeFoodCard(
+      {super.key, required this.name, required this.expiryDate});
+  final String name;
+  final String expiryDate;
 
   @override
   Widget build(BuildContext context) {
@@ -23,9 +27,9 @@ class FridgeFoodCard extends StatelessWidget {
             margin: const EdgeInsets.only(left: 10, right: 10, top: 20),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
+              children: [
                 Text(
-                  "Potatoes",
+                  name, // 식품명
                   textAlign: TextAlign.center,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(fontSize: 15, fontWeight: FontWeight.w800),
@@ -34,7 +38,7 @@ class FridgeFoodCard extends StatelessWidget {
                   height: 2,
                 ),
                 Text(
-                  "D-3",
+                  expiryDate, // 유통기한
                   textAlign: TextAlign.center,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(

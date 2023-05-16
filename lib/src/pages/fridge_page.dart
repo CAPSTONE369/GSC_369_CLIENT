@@ -1,4 +1,7 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 import '../../flutter_flow/flutter_flow_icon_button.dart';
 import '../../flutter_flow/flutter_flow_theme.dart';
@@ -6,6 +9,7 @@ import '../widgets/fridge/fridge_appbar.dart';
 import '../widgets/fridge/fridge_big_divider.dart';
 import '../widgets/fridge/fridge_food_card.dart';
 import '../widgets/fridge/fridge_small_divider.dart';
+import 'package:http/http.dart' as http;
 
 class FridgePage extends StatefulWidget {
   const FridgePage({super.key});
@@ -15,6 +19,33 @@ class FridgePage extends StatefulWidget {
 }
 
 class _FridgePageState extends State<FridgePage> {
+  List info = [];
+
+  @override
+  void initState() {
+    super.initState();
+    setState(() {
+      loadingFoodInfo();
+    });
+  }
+
+  static final storage = FlutterSecureStorage();
+
+  void loadingFoodInfo() async {
+    final apiUrl = Uri.http('localhost:8080', 'food/fridge/1');
+    final Map<String, String> tokens = await storage.readAll();
+    print(tokens['accessToken']);
+    var foodInfo = await http.get(
+      apiUrl,
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": tokens['accessToken'].toString()
+      },
+    );
+    info = jsonDecode(utf8.decode(foodInfo.bodyBytes));
+    print(info[0].toString());
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,10 +70,13 @@ class _FridgePageState extends State<FridgePage> {
             ),
             Expanded(
                 child: ListView.separated(
-              itemCount: 12,
+              itemCount: info.length,
               itemBuilder: (BuildContext context, int idx) {
+                print(info[idx]["name"]);
                 return Column(children: <Widget>[
-                  FridgeFoodCard(),
+                  FridgeFoodCard(
+                      name: info[idx]["name"],
+                      expiryDate: info[idx]["expiryDate"]),
                 ]);
               },
               separatorBuilder: (BuildContext context, int index) =>
