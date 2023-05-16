@@ -1,6 +1,8 @@
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
+import 'dart:io';
 
 class RegisterImageButton extends StatefulWidget {
   const RegisterImageButton({super.key});
@@ -10,6 +12,18 @@ class RegisterImageButton extends StatefulWidget {
 }
 
 class _RegisterImageButtonState extends State<RegisterImageButton> {
+  final ImagePicker _picker = ImagePicker();
+  late File _image = File('assets/image/btnG_.png');
+
+  Future _getImage(ImageSource imageSource) async {
+    final image = await _picker.pickImage(source: imageSource);
+
+    setState(() {
+      _image = File(image!.path);
+    });
+    print(_image);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -18,7 +32,9 @@ class _RegisterImageButtonState extends State<RegisterImageButton> {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
       child: InkWell(
         borderRadius: BorderRadius.circular(8),
-        onTap: () {},
+        onTap: () {
+          _getImage(ImageSource.gallery);
+        },
         child: Row(
           children: [
             const Flexible(flex: 1, child: SizedBox.expand()),
