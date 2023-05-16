@@ -29,6 +29,13 @@ class _FridgePageState extends State<FridgePage> {
     });
   }
 
+  @override
+  void didChangeDependencies() {
+    setState(() {
+      loadingFoodInfo();
+    });
+  }
+
   static final storage = FlutterSecureStorage();
 
   void loadingFoodInfo() async {
