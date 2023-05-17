@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:client/src/model/page/fridge_page_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
@@ -19,6 +20,10 @@ class FridgePage extends StatefulWidget {
 }
 
 class _FridgePageState extends State<FridgePage> {
+  late FridgePageModel _model;
+  final scaffoldKey = GlobalKey<ScaffoldState>();
+  final _unfocusNode = FocusNode();
+
   List info = [];
 
   @override
@@ -36,10 +41,19 @@ class _FridgePageState extends State<FridgePage> {
     });
   }
 
+  @override
+  void dispose() {
+    _model.dispose();
+
+    _unfocusNode.dispose();
+    super.dispose();
+  }
+
   static final storage = FlutterSecureStorage();
 
   void loadingFoodInfo() async {
-    final apiUrl = Uri.http('localhost:8080', 'food/fridge/1');
+    print("api called");
+    final apiUrl = Uri.https('api.zefridge.xyz', 'food/fridge/1');
     final Map<String, String> tokens = await storage.readAll();
     print(tokens['accessToken']);
     var foodInfo = await http.get(

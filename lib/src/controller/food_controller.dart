@@ -29,7 +29,7 @@ class FoodNotifier extends ChangeNotifier {
 
   submit() async {
     String accessToken = storage.read(key: 'accessToken').toString();
-    final url = Uri.http("localhost:8080", "/food");
+    final url = Uri.https('api.zefridge.xyz', "/food");
     final Map<String, String> tokens = await storage.readAll();
 
     List request = [];
