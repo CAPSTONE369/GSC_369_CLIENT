@@ -29,16 +29,13 @@ class _FridgePageState extends State<FridgePage> {
   @override
   void initState() {
     super.initState();
-    setState(() {
-      loadingFoodInfo();
-    });
+    loadingFoodInfo();
   }
 
   @override
   void didChangeDependencies() {
-    setState(() {
-      loadingFoodInfo();
-    });
+    super.didChangeDependencies();
+    loadingFoodInfo();
   }
 
   @override
@@ -63,7 +60,10 @@ class _FridgePageState extends State<FridgePage> {
         "Authorization": tokens['accessToken'].toString()
       },
     );
-    info = jsonDecode(utf8.decode(foodInfo.bodyBytes));
+    setState(() {
+      info = jsonDecode(utf8.decode(foodInfo.bodyBytes));
+    });
+
     print(info[info.length - 1].toString());
   }
 
