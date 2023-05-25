@@ -42,7 +42,6 @@ class _RegisterImageButtonState extends State<RegisterImageButton> {
       'https://ocr.zefridge.xyz/model',
       data: formData,
     );
-    print(response.data[0]["name"]);
 
     List apiRequest = [];
     for (int i = 0; i < response.data.length; i++) {
@@ -55,6 +54,7 @@ class _RegisterImageButtonState extends State<RegisterImageButton> {
         "freezeType": 'COLD',
         "expriyDate": DateTime.now().toIso8601String()
       };
+      print(response.data[i]["name"]);
       apiRequest.add(data);
     }
 
